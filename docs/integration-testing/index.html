@@ -453,13 +453,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="integration-testing">Integration Testing</h1>
-<p><strong>Requires global <code>Promise</code> to be available</strong></p>
-<p>For integration testing, Redux Saga Test Plan exports an <code>expectSaga</code> function
-that returns an API for asserting that a saga yields certain effects. To use
-<code>expectSaga</code>, pass in your generator function as the first argument. Pass in
-additional arguments which will be the arguments passed on to the generator
-function.</p>
+                                <h1 id="&#xD1B5;&#xD569;-&#xD14C;&#xC2A4;&#xD2B8;">&#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8;</h1>
+<p><strong><code>Promise</code>&#xAC00; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5; &#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</strong></p>
+<p>Redux Saga Test Plan&#xC740; &#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xD558;&#xAE30; &#xC704;&#xD574; saga effect&#xB4E4;&#xC774; &#xBC18;&#xD658;&#xD558;&#xB294; &#xAC12;&#xC744; &#xAC80;&#xC99D;&#xC744; &#xC704;&#xD55C; API&#xB97C;
+&#xBC18;&#xD658;&#xD558;&#xB294; <code>expectSaga</code>&#xD568;&#xC218;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. <code>expectSaga</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xCCAB; &#xBC88;&#xC9F8; &#xC778;&#xC790;&#xC5D0; generator &#xD568;&#xC218;&#xB97C;
+&#xB123;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8; generator &#xD568;&#xC218;&#xC5D0; &#xC0AC;&#xC6A9;&#xB420; &#xC778;&#xC790;&#xC758; &#xAC12;&#xB4E4;&#xC744; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xC778;&#xC790;&#xB85C; &#xB123;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><code>expectSaga</code> runs your saga with Redux Saga&apos;s <code>runSaga</code> function, so it will run
 just like it would in your application. This also means your saga will likely
 run asynchronously, so <code>expectSaga</code> will also be asynchronous.</p>
@@ -490,6 +488,52 @@ it(<span class="hljs-string">&apos;puts an ADD action&apos;</span>, () =&gt; {
     .run();
 });
 </code></pre>
+<!--
+# Integration Testing
+
+**Requires global `Promise` to be available**
+
+For integration testing, Redux Saga Test Plan exports an `expectSaga` function
+that returns an API for asserting that a saga yields certain effects. To use
+`expectSaga`, pass in your generator function as the first argument. Pass in
+additional arguments which will be the arguments passed on to the generator
+function.
+
+`expectSaga` runs your saga with Redux Saga's `runSaga` function, so it will run
+just like it would in your application. This also means your saga will likely
+run asynchronously, so `expectSaga` will also be asynchronous.
+
+After calling `expectSaga` on your saga and making some assertions, you can
+start the saga with the `run` method. The `run` method will return a `Promise`,
+that you can then use with your favorite testing framework. If any assertions
+fail, then `expectSaga` will reject the returned `Promise`. If all assertions
+pass, then the `Promise` will resolve.
+
+Look at the example below that uses [Jest](https://facebook.github.io/jest/) as
+the testing framework. Notice that we return the `Promise` so Jest knows when
+the test completes. Also notice that we don't even have to bother testing the
+`call` effect with `expectSaga`.
+
+```js
+import { call, put } from 'redux-saga/effects';
+import { expectSaga } from 'redux-saga-test-plan';
+
+function* mainSaga(x, y) {
+  yield call([console.log, console], 'hello');
+  yield put({ type: 'ADD', payload: x + y });
+}
+
+it('puts an ADD action', () => {
+  return expectSaga(mainSaga, 40, 2)
+    // assert that the saga will eventually yield `put`
+    // with the expected action
+    .put({ type: 'ADD', payload: 42 })
+
+    // run it
+    .run();
+});
+```
+-->
 
                                 
                                 </section>
@@ -533,7 +577,7 @@ it(<span class="hljs-string">&apos;puts an ADD action&apos;</span>, () =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Integration Testing","level":"1.3","depth":1,"next":{"title":"Effect Creator Assertions","level":"1.3.1","depth":2,"path":"docs/integration-testing/effect-creators.md","ref":"docs/integration-testing/effect-creators.md","articles":[]},"previous":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/README.md","mtime":"2019-05-08T15:39:03.283Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-08T16:27:44.994Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Integration Testing","level":"1.3","depth":1,"next":{"title":"Effect Creator Assertions","level":"1.3.1","depth":2,"path":"docs/integration-testing/effect-creators.md","ref":"docs/integration-testing/effect-creators.md","articles":[]},"previous":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/README.md","mtime":"2019-05-08T16:49:16.606Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-08T16:49:39.400Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
