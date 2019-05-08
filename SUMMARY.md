@@ -1,6 +1,6 @@
 ## Table of Contents
 
-- [Introduction](docs/README.md)
+- [Introduction](README.md)
 - [Getting Started](docs/getting-started.md)
 - [Integration Testing](docs/integration-testing/README.md)
   - [Effect Creator Assertions](docs/integration-testing/effect-creators.md)
