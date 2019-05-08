@@ -1,7 +1,3 @@
-git add .
-git commit -m "Update"
-git push origin master
-
 git checkout master
 git merge docs
 
