@@ -6,8 +6,8 @@ Redux Saga Test Plan은 통합 테스트를 하기 위해 saga effect들이 반�
 반환하는 `expectSaga`함수를 제공합니다. `expectSaga`를 사용하기 위해서는 첫 번째 인자에 generator 함수를
 넣습니다. 그 generator 함수에 사용될 인자의 값들을 추가적인 인자로 넣습니다.
 
-`expectSaga` runs your saga with Redux Saga's `runSaga` function, so it will run
-just like it would in your application. This also means your saga will likely
+`expectSaga`는 Redux Saga의 `runSaga` 함수를 사용하여 saga를 실행하기 때문에 실제 앱에서
+동작 하는 것처럼 실행될 것입니다. This also means your saga will likely
 run asynchronously, so `expectSaga` will also be asynchronous.
 
 After calling `expectSaga` on your saga and making some assertions, you can
