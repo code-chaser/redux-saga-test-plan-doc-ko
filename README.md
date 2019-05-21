@@ -4,28 +4,37 @@
 [![Travis branch](https://img.shields.io/travis/jfairbank/redux-saga-test-plan/master.svg?style=flat-square)](https://travis-ci.org/jfairbank/redux-saga-test-plan)
 [![Codecov](https://img.shields.io/codecov/c/github/jfairbank/redux-saga-test-plan.svg?style=flat-square)](https://codecov.io/gh/jfairbank/redux-saga-test-plan)
 
-#### Test Redux Saga with an easy plan.
+#### 쉽게 Redux Saga 를 테스트하세요.
 
-Redux Saga Test Plan makes testing sagas a breeze. Whether you need to test
+Redux Saga Test Plan은 saga 테스트를 쉽게 만듭니다. effect들의 검증과 순서를 테스트 해야 하거나
+특정 시점에 saga `put`의 특정 액션을 테스트 해야 할때 Redux Saga Test Plan를 적용하세요.
+<!-- Redux Saga Test Plan makes testing sagas a breeze. Whether you need to test
 exact effects and their ordering or just test your saga `put`'s a specific
-action at some point, Redux Saga Test Plan has you covered.
+action at some point, Redux Saga Test Plan has you covered. -->
 
-Redux Saga Test Plan aims to embrace both unit testing and integration testing
-approaches to make testing your sagas easy.
+Redux Saga Test Plan는 saga를 쉽게 테스트 할 수 있게 단위 테스트와 통합 테스트 방법에 대해 모두 
+포용하는 것을 목표로 합니다.
+<!-- Redux Saga Test Plan aims to embrace both unit testing and integration testing
+approaches to make testing your sagas easy. -->
 
-## Integration Testing
+## 통합 테스트
 
-**Requires global `Promise` to be available**
+**글로벌 `Promise`가 필요합니다.**
 
-One downside to unit testing sagas is that it couples your test to your
+saga 단위 테스트의 단점은 테스트가 구현과 결합한다는 것입니다. 단순히 saga에서 반환되는 effect들의 순서를 
+변경하는것 만으로도 테스트가 깨집니다. 심지어 saga와 테스트가 기능적으로 동일하더라도 그렇습니다. 
+saga에서 반환되는 effect의 검증이나 순서에 관심이 없다면, Redux Saga가 실핼될 때 saga의 동작을 
+통합적으로 접근해서 테스트할 수 있습니다. saga가 실행되는 동안 반환되는 일부 effect에 대해 간단한 테스트 할 수 있습니다.
+이를 위해 `expectSaga` 테스트 함수를 사용하세요.
+<!-- One downside to unit testing sagas is that it couples your test to your
 implementation. Simple reordering of yielded effects in your saga could break
 your tests even if the functionality stays the same. If you're not concerned
 with the order or exact effects your saga yields, then you can take a
 integrative approach, testing the behavior of your saga when run by Redux Saga.
 Then, you can simply test that a particular effect was yielded during the saga
-run. For this, use the `expectSaga` test function.
+run. For this, use the `expectSaga` test function. -->
 
-### Simple Example
+### 간단한 예
 
 Import the `expectSaga` function and pass in your saga function as an argument.
 Any additional arguments to `expectSaga` will become arguments to the saga
@@ -289,3 +298,4 @@ it('works with unit tests', () => {
   - [Saga Helpers](docs/unit-testing/saga-helpers.md)
   - [General Assertions](docs/unit-testing/general-assertions.md)
   - [Time Travel](docs/unit-testing/time-travel.md)
+

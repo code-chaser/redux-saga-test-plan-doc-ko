@@ -455,22 +455,31 @@
 <p><a href="https://www.npmjs.com/package/redux-saga-test-plan" target="_blank"><img src="https://img.shields.io/npm/v/redux-saga-test-plan.svg?style=flat-square" alt="npm"></a>
 <a href="https://travis-ci.org/jfairbank/redux-saga-test-plan" target="_blank"><img src="https://img.shields.io/travis/jfairbank/redux-saga-test-plan/master.svg?style=flat-square" alt="Travis branch"></a>
 <a href="https://codecov.io/gh/jfairbank/redux-saga-test-plan" target="_blank"><img src="https://img.shields.io/codecov/c/github/jfairbank/redux-saga-test-plan.svg?style=flat-square" alt="Codecov"></a></p>
-<h4 id="test-redux-saga-with-an-easy-plan">Test Redux Saga with an easy plan.</h4>
-<p>Redux Saga Test Plan makes testing sagas a breeze. Whether you need to test
-exact effects and their ordering or just test your saga <code>put</code>&apos;s a specific
-action at some point, Redux Saga Test Plan has you covered.</p>
-<p>Redux Saga Test Plan aims to embrace both unit testing and integration testing
-approaches to make testing your sagas easy.</p>
-<h2 id="integration-testing">Integration Testing</h2>
-<p><strong>Requires global <code>Promise</code> to be available</strong></p>
-<p>One downside to unit testing sagas is that it couples your test to your
+<h4 id="&#xC27D;&#xAC8C;-redux-saga-&#xB97C;-&#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xC138;&#xC694;">&#xC27D;&#xAC8C; Redux Saga &#xB97C; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xC138;&#xC694;.</h4>
+<p>Redux Saga Test Plan&#xC740; saga &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC27D;&#xAC8C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. effect&#xB4E4;&#xC758; &#xAC80;&#xC99D;&#xACFC; &#xC21C;&#xC11C;&#xB97C; &#xD14C;&#xC2A4;&#xD2B8; &#xD574;&#xC57C; &#xD558;&#xAC70;&#xB098;
+&#xD2B9;&#xC815; &#xC2DC;&#xC810;&#xC5D0; saga <code>put</code>&#xC758; &#xD2B9;&#xC815; &#xC561;&#xC158;&#xC744; &#xD14C;&#xC2A4;&#xD2B8; &#xD574;&#xC57C; &#xD560;&#xB54C; Redux Saga Test Plan&#xB97C; &#xC801;&#xC6A9;&#xD558;&#xC138;&#xC694;.
+<!-- Redux Saga Test Plan makes testing sagas a breeze. Whether you need to test
+exact effects and their ordering or just test your saga `put`'s a specific
+action at some point, Redux Saga Test Plan has you covered. --></p>
+<p>Redux Saga Test Plan&#xB294; saga&#xB97C; &#xC27D;&#xAC8C; &#xD14C;&#xC2A4;&#xD2B8; &#xD560; &#xC218; &#xC788;&#xAC8C; &#xB2E8;&#xC704; &#xD14C;&#xC2A4;&#xD2B8;&#xC640; &#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8; &#xBC29;&#xBC95;&#xC5D0; &#xB300;&#xD574; &#xBAA8;&#xB450; 
+&#xD3EC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBAA9;&#xD45C;&#xB85C; &#xD569;&#xB2C8;&#xB2E4;.
+<!-- Redux Saga Test Plan aims to embrace both unit testing and integration testing
+approaches to make testing your sagas easy. --></p>
+<h2 id="&#xD1B5;&#xD569;-&#xD14C;&#xC2A4;&#xD2B8;">&#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8;</h2>
+<p><strong>&#xAE00;&#xB85C;&#xBC8C; <code>Promise</code>&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</strong></p>
+<p>saga &#xB2E8;&#xC704; &#xD14C;&#xC2A4;&#xD2B8;&#xC758; &#xB2E8;&#xC810;&#xC740; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAD6C;&#xD604;&#xACFC; &#xACB0;&#xD569;&#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xB2E8;&#xC21C;&#xD788; saga&#xC5D0;&#xC11C; &#xBC18;&#xD658;&#xB418;&#xB294; effect&#xB4E4;&#xC758; &#xC21C;&#xC11C;&#xB97C; 
+&#xBCC0;&#xACBD;&#xD558;&#xB294;&#xAC83; &#xB9CC;&#xC73C;&#xB85C;&#xB3C4; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAE68;&#xC9D1;&#xB2C8;&#xB2E4;. &#xC2EC;&#xC9C0;&#xC5B4; saga&#xC640; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAE30;&#xB2A5;&#xC801;&#xC73C;&#xB85C; &#xB3D9;&#xC77C;&#xD558;&#xB354;&#xB77C;&#xB3C4; &#xADF8;&#xB807;&#xC2B5;&#xB2C8;&#xB2E4;. 
+saga&#xC5D0;&#xC11C; &#xBC18;&#xD658;&#xB418;&#xB294; effect&#xC758; &#xAC80;&#xC99D;&#xC774;&#xB098; &#xC21C;&#xC11C;&#xC5D0; &#xAD00;&#xC2EC;&#xC774; &#xC5C6;&#xB2E4;&#xBA74;, Redux Saga&#xAC00; &#xC2E4;&#xD57C;&#xB420; &#xB54C; saga&#xC758; &#xB3D9;&#xC791;&#xC744; 
+&#xD1B5;&#xD569;&#xC801;&#xC73C;&#xB85C; &#xC811;&#xADFC;&#xD574;&#xC11C; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. saga&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xB3D9;&#xC548; &#xBC18;&#xD658;&#xB418;&#xB294; &#xC77C;&#xBD80; effect&#xC5D0; &#xB300;&#xD574; &#xAC04;&#xB2E8;&#xD55C; &#xD14C;&#xC2A4;&#xD2B8; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB97C; &#xC704;&#xD574; <code>expectSaga</code> &#xD14C;&#xC2A4;&#xD2B8; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC138;&#xC694;.
+<!-- One downside to unit testing sagas is that it couples your test to your
 implementation. Simple reordering of yielded effects in your saga could break
-your tests even if the functionality stays the same. If you&apos;re not concerned
+your tests even if the functionality stays the same. If you're not concerned
 with the order or exact effects your saga yields, then you can take a
 integrative approach, testing the behavior of your saga when run by Redux Saga.
 Then, you can simply test that a particular effect was yielded during the saga
-run. For this, use the <code>expectSaga</code> test function.</p>
-<h3 id="simple-example">Simple Example</h3>
+run. For this, use the `expectSaga` test function. --></p>
+<h3 id="&#xAC04;&#xB2E8;&#xD55C;-&#xC608;">&#xAC04;&#xB2E8;&#xD55C; &#xC608;</h3>
 <p>Import the <code>expectSaga</code> function and pass in your saga function as an argument.
 Any additional arguments to <code>expectSaga</code> will become arguments to the saga
 function. The return value is a chainable API with assertions for the different
@@ -761,7 +770,7 @@ it(<span class="hljs-string">&apos;works with unit tests&apos;</span>, () =&gt; 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-05-08T17:14:47.547Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-08T17:16:09.628Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-05-21T17:01:56.307Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-21T17:02:05.200Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
