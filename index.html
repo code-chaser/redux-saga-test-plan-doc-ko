@@ -467,11 +467,12 @@ action at some point, Redux Saga Test Plan has you covered. --></p>
 approaches to make testing your sagas easy. --></p>
 <h2 id="&#xD1B5;&#xD569;-&#xD14C;&#xC2A4;&#xD2B8;">&#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8;</h2>
 <p><strong>&#xAE00;&#xB85C;&#xBC8C; <code>Promise</code>&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</strong></p>
-<p>saga &#xB2E8;&#xC704; &#xD14C;&#xC2A4;&#xD2B8;&#xC758; &#xB2E8;&#xC810;&#xC740; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAD6C;&#xD604;&#xACFC; &#xACB0;&#xD569;&#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xB2E8;&#xC21C;&#xD788; saga&#xC5D0;&#xC11C; &#xBC18;&#xD658;&#xB418;&#xB294; effect&#xB4E4;&#xC758; &#xC21C;&#xC11C;&#xB97C; 
-&#xBCC0;&#xACBD;&#xD558;&#xB294;&#xAC83; &#xB9CC;&#xC73C;&#xB85C;&#xB3C4; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAE68;&#xC9D1;&#xB2C8;&#xB2E4;. &#xC2EC;&#xC9C0;&#xC5B4; saga&#xC640; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAE30;&#xB2A5;&#xC801;&#xC73C;&#xB85C; &#xB3D9;&#xC77C;&#xD558;&#xB354;&#xB77C;&#xB3C4; &#xADF8;&#xB807;&#xC2B5;&#xB2C8;&#xB2E4;. 
-saga&#xC5D0;&#xC11C; &#xBC18;&#xD658;&#xB418;&#xB294; effect&#xC758; &#xAC80;&#xC99D;&#xC774;&#xB098; &#xC21C;&#xC11C;&#xC5D0; &#xAD00;&#xC2EC;&#xC774; &#xC5C6;&#xB2E4;&#xBA74;, Redux Saga&#xAC00; &#xC2E4;&#xD57C;&#xB420; &#xB54C; saga&#xC758; &#xB3D9;&#xC791;&#xC744; 
-&#xD1B5;&#xD569;&#xC801;&#xC73C;&#xB85C; &#xC811;&#xADFC;&#xD574;&#xC11C; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. saga&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xB3D9;&#xC548; &#xBC18;&#xD658;&#xB418;&#xB294; &#xC77C;&#xBD80; effect&#xC5D0; &#xB300;&#xD574; &#xAC04;&#xB2E8;&#xD55C; &#xD14C;&#xC2A4;&#xD2B8; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC774;&#xB97C; &#xC704;&#xD574; <code>expectSaga</code> &#xD14C;&#xC2A4;&#xD2B8; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC138;&#xC694;.
+<p>saga &#xB2E8;&#xC704; &#xD14C;&#xC2A4;&#xD2B8;&#xC758; &#xB2E8;&#xC810;&#xC740; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAD6C;&#xD604;&#xCF54;&#xB4DC;&#xC640; &#xACB0;&#xD569;&#xB41C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xB2E8;&#xC21C;&#xD788; saga&#xC5D0;&#xC11C; &#xBC18;&#xD658;&#xB418;&#xB294; effect&#xB4E4;&#xC758;
+&#xC21C;&#xC11C;&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xB294;&#xAC83; &#xB9CC;&#xC73C;&#xB85C;&#xB3C4; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAE68;&#xC9D1;&#xB2C8;&#xB2E4;. &#xC2EC;&#xC9C0;&#xC5B4; saga&#xC640; &#xD14C;&#xC2A4;&#xD2B8;&#xAC00; &#xAE30;&#xB2A5;&#xC801;&#xC73C;&#xB85C; &#xB3D9;&#xC77C;&#xD558;&#xB354;&#xB77C;&#xB3C4; &#xADF8;&#xB807;&#xC2B5;&#xB2C8;&#xB2E4;. 
+saga&#xC5D0;&#xC11C; &#xBC18;&#xD658;&#xB418;&#xB294; effect&#xC758; &#xAC80;&#xC99D;&#xC774;&#xB098; &#xC21C;&#xC11C;&#xC5D0; &#xAD00;&#xC2EC;&#xC774; &#xC5C6;&#xB2E4;&#xBA74;, Redux Saga&#xAC00; &#xC2E4;&#xD589;&#xB420; &#xB54C; saga&#xC758; &#xB3D9;&#xC791;&#xC744; 
+&#xD1B5;&#xD569;&#xC801;&#xC73C;&#xB85C; &#xC811;&#xADFC;&#xD574;&#xC11C; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; saga&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xB3D9;&#xC548; &#xBC18;&#xD658;&#xB41C; &#xC77C;&#xBD80; effect&#xB97C; &#xAC04;&#xB2E8;&#xD558;&#xAC8C;
+&#xD14C;&#xC2A4;&#xD2B8;&#xB97C;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB7F4;&#xB54C; <code>expectSaga</code> &#xD14C;&#xC2A4;&#xD2B8; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC138;&#xC694;.
 <!-- One downside to unit testing sagas is that it couples your test to your
 implementation. Simple reordering of yielded effects in your saga could break
 your tests even if the functionality stays the same. If you're not concerned
@@ -480,21 +481,32 @@ integrative approach, testing the behavior of your saga when run by Redux Saga.
 Then, you can simply test that a particular effect was yielded during the saga
 run. For this, use the `expectSaga` test function. --></p>
 <h3 id="&#xAC04;&#xB2E8;&#xD55C;-&#xC608;">&#xAC04;&#xB2E8;&#xD55C; &#xC608;</h3>
-<p>Import the <code>expectSaga</code> function and pass in your saga function as an argument.
-Any additional arguments to <code>expectSaga</code> will become arguments to the saga
+<p><code>expectSaga</code> &#xD568;&#xC218;&#xB97C; import &#xD558;&#xACE0; saga &#xD568;&#xC218;&#xB97C; &#xC778;&#xC790;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xC138;&#xC694;. saga &#xD568;&#xC218;&#xC758; &#xC778;&#xC790;&#xB4E4;&#xC774; <code>expectSaga</code> 
+&#xD568;&#xC218;&#xC758; &#xCD94;&#xAC00; &#xC778;&#xC790;&#xAC00; &#xB420; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. <code>expectSaga</code> &#xD568;&#xC218;&#xC758; &#xBC18;&#xD658;&#xAC12;&#xC740; Redux Saga&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xAC00;&#xB2A5;&#xD55C; &#xB2E4;&#xC591;&#xD55C; 
+effect &#xC0DD;&#xC131;&#xC790;&#xB4E4;&#xC5D0; &#xB300;&#xD55C; assertion(&#xB2E8;&#xC5B8;&#xBB38;)&#xB4E4;&#xC758; &#xCCB4;&#xC778;&#xD654;&#xB41C; API &#xC785;&#xB2C8;&#xB2E4;.
+<!-- Import the `expectSaga` function and pass in your saga function as an argument.
+Any additional arguments to `expectSaga` will become arguments to the saga
 function. The return value is a chainable API with assertions for the different
-effect creators available in Redux Saga.</p>
-<p>In the example below, we test that the <code>userSaga</code> successfully <code>put</code>s a
-<code>RECEIVE_USER</code> action with the <code>fakeUser</code> as the payload. We call <code>expectSaga</code>
-with the <code>userSaga</code> and supply an <code>api</code> object as an argument to <code>userSaga</code>. We
-assert the expected <code>put</code> effect via the <code>put</code> assertion method. Then, we call
-the <code>dispatch</code> method with a <code>REQUEST_USER</code> action that contains the user id
-payload. The <code>dispatch</code> method will supply actions to <code>take</code> effects. Finally,
-we start the test by calling the <code>run</code> method which returns a <code>Promise</code>. Tests
-with <code>expectSaga</code> will always run asynchronously, so the returned <code>Promise</code>
-resolves when the saga finishes or when <code>expectSaga</code> forces a timeout. If you&apos;re
-using a test runner like Jest, you can return the <code>Promise</code> inside your Jest
-test so Jest knows when the test is complete.</p>
+effect creators available in Redux Saga. --></p>
+<p>&#xB2E4;&#xC74C; &#xC608;&#xC81C;&#xC5D0;&#xC11C; &#xCC98;&#xB7FC;, &#xC131;&#xACF5;&#xC2DC;&#xC5D0; <code>fakeUser</code> &#xB370;&#xC774;&#xD130;&#xB97C; &#xAC00;&#xC9C0;&#xB294; <code>RECEIVE_USER</code> &#xC561;&#xC158;&#xC744; <code>put</code>&#xD558;&#xB294;
+<code>userSaga</code>&#xB97C; &#xD14C;&#xC2A4;&#xD2B8;&#xD569;&#xB2C8;&#xB2E4;. <code>expectSaga</code>&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xACE0; <code>userSaga</code>&#xC640; <code>api</code> &#xAC1D;&#xCCB4;&#xB97C; &#xC778;&#xC790;&#xB85C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
+<code>put</code> assertion &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xD1B5;&#xD574; <code>put</code> effect&#xAC00; &#xC608;&#xC0C1;&#xB418;&#xB294;&#xAC83;&#xC744; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0;, &#xC0AC;&#xC6A9;&#xC790; id &#xB370;&#xC774;&#xD130;&#xB97C;
+&#xD3EC;&#xD568;&#xD558;&#xB294; <code>REQUSET_USER</code> &#xC561;&#xC158;&#xACFC; &#xD568;&#xAED8; <code>dispatch</code> &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;. <code>dispatch</code> &#xBA54;&#xC11C;&#xB4DC;&#xB294; <code>take</code>
+effect&#xC5D0;&#xAC8C; &#xC561;&#xC158;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; <code>Promise</code>&#xB97C; &#xBC18;&#xD658;&#xD558;&#xB294; <code>run</code> &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xC5EC; test&#xB97C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.
+<code>expectSaga</code>&#xB85C; &#xD558;&#xB294; &#xD14C;&#xC2A4;&#xD2B8;&#xB294; &#xD56D;&#xC0C1; &#xBE44;&#xB3D9;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; saga&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xAC70;&#xB098; <code>expextSaga</code>&#xAC00; &#xD0C0;&#xC784;&#xC544;&#xC6C3; &#xB420;&#xB54C;
+&#xBC18;&#xD658;&#xB41C; <code>Promise</code>&#xAC00; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;. Jest &#xAC19;&#xC740; &#xD14C;&#xC2A4;&#xD2B8; &#xB7EC;&#xB108;&#xB97C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xBA74;, Jest &#xB0B4;&#xBD80;&#xB85C; <code>Promise</code>&#xB97C; &#xBC18;&#xD658;&#xD558;&#xC5EC;
+Jest&#xAC00; &#xD14C;&#xC2A4;&#xD2B8;&#xC758; &#xC885;&#xB8CC;&#xB97C; &#xC54C;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- In the example below, we test that the `userSaga` successfully `put`s a
+`RECEIVE_USER` action with the `fakeUser` as the payload. We call `expectSaga`
+with the `userSaga` and supply an `api` object as an argument to `userSaga`. We
+assert the expected `put` effect via the `put` assertion method. Then, we call
+the `dispatch` method with a `REQUEST_USER` action that contains the user id
+payload. The `dispatch` method will supply actions to `take` effects. Finally,
+we start the test by calling the `run` method which returns a `Promise`. Tests
+with `expectSaga` will always run asynchronously, so the returned `Promise`
+resolves when the saga finishes or when `expectSaga` forces a timeout. If you're
+using a test runner like Jest, you can return the `Promise` inside your Jest
+test so Jest knows when the test is complete. --></p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { call, put, take } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
 <span class="hljs-keyword">import</span> { expectSaga } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga-test-plan&apos;</span>;
 
@@ -511,29 +523,38 @@ it(<span class="hljs-string">&apos;just works!&apos;</span>, () =&gt; {
   };
 
   <span class="hljs-keyword">return</span> expectSaga(userSaga, api)
-    <span class="hljs-comment">// Assert that the `put` will eventually happen.</span>
+    <span class="hljs-comment">// &#xACB0;&#xAD6D; `put`&#xC774; &#xC2E4;&#xD589;&#xB420; &#xAC83;&#xC744; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;.</span>
     .put({
       type: <span class="hljs-string">&apos;RECEIVE_USER&apos;</span>,
       payload: { id: <span class="hljs-number">42</span>, name: <span class="hljs-string">&apos;Tucker&apos;</span> },
     })
 
-    <span class="hljs-comment">// Dispatch any actions that the saga will `take`.</span>
+    <span class="hljs-comment">// `userSaga`&#xAC00; `take`&#xD560; &#xC561;&#xC158;&#xC744; &#xBC1C;&#xD589;&#xD558;&#xC138;&#xC694;.</span>
     .dispatch({ type: <span class="hljs-string">&apos;REQUEST_USER&apos;</span>, payload: <span class="hljs-number">42</span> })
 
-    <span class="hljs-comment">// Start the test. Returns a Promise.</span>
+    <span class="hljs-comment">// &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC2DC;&#xC791;&#xB418;&#xACE0; Promise&#xAC00; &#xBC18;&#xD658;&#xB429;&#xB2C8;&#xB2E4;.</span>
     .run();
 });
 </code></pre>
 <h3 id="mocking-with-providers">Mocking with Providers</h3>
-<p><code>expectSaga</code> runs your saga with Redux Saga, so it will try to resolve effects
-just like Redux Saga would in your application. This is great for integration
+<p><code>expectSaga</code>&#xB294; Redux Saga&#xB85C; saga&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC5D0;&#xC11C;&#xC758; Redux Saga&#xCC98;&#xB7FC; effect&#xB4E4;&#xC744; 
+&#xC2E4;&#xD589;&#xD558;&#xB824; &#xD569;&#xB2C8;&#xB2E4;. This is great for integration
 testing, but sometimes it can be laborious to bootstrap your entire application
 for tests or mock things like server APIs. In those cases, you can use
 <em>providers</em> which are perfect for mocking values directly with <code>expectSaga</code>.
 Providers are similar to middleware that allow you to intercept effects before
 they reach Redux Saga. You can choose to return a mock value instead of allowing
 Redux Saga to handle the effect, or you can pass on the effect to other
-providers or eventually Redux Saga.</p>
+providers or eventually Redux Saga.
+<!-- `expectSaga` runs your saga with Redux Saga, so it will try to resolve effects
+just like Redux Saga would in your application. This is great for integration
+testing, but sometimes it can be laborious to bootstrap your entire application
+for tests or mock things like server APIs. In those cases, you can use
+_providers_ which are perfect for mocking values directly with `expectSaga`.
+Providers are similar to middleware that allow you to intercept effects before
+they reach Redux Saga. You can choose to return a mock value instead of allowing
+Redux Saga to handle the effect, or you can pass on the effect to other
+providers or eventually Redux Saga. --></p>
 <p><code>expectSaga</code> has two flavors of providers, <em>static providers</em> and <em>dynamic
 providers</em>. Static providers are easier to compose and reuse, but dynamic
 providers give you more flexibility with non-deterministic effects. Here is one
@@ -770,7 +791,7 @@ it(<span class="hljs-string">&apos;works with unit tests&apos;</span>, () =&gt; 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-05-21T17:01:56.307Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-21T17:02:05.200Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-05-28T15:29:24.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T15:32:36.671Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
