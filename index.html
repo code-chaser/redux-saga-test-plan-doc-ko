@@ -538,14 +538,10 @@ it(<span class="hljs-string">&apos;just works!&apos;</span>, () =&gt; {
 </code></pre>
 <h3 id="mocking-with-providers">Mocking with Providers</h3>
 <p><code>expectSaga</code>&#xB294; Redux Saga&#xB85C; saga&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC5D0;&#xC11C;&#xC758; Redux Saga&#xCC98;&#xB7FC; effect&#xB4E4;&#xC744; 
-&#xC2E4;&#xD589;&#xD558;&#xB824; &#xD569;&#xB2C8;&#xB2E4;. This is great for integration
-testing, but sometimes it can be laborious to bootstrap your entire application
-for tests or mock things like server APIs. In those cases, you can use
-<em>providers</em> which are perfect for mocking values directly with <code>expectSaga</code>.
-Providers are similar to middleware that allow you to intercept effects before
-they reach Redux Saga. You can choose to return a mock value instead of allowing
-Redux Saga to handle the effect, or you can pass on the effect to other
-providers or eventually Redux Saga.
+&#xC2E4;&#xD589;&#xD558;&#xB824; &#xD569;&#xB2C8;&#xB2E4;. &#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8;&#xC5D0;&#xC11C;&#xB294; &#xC774;&#xAC83;&#xC774; &#xC7A5;&#xC810;&#xC774;&#xC9C0;&#xB9CC;, &#xAC00;&#xB054; &#xBE60;&#xB974;&#xAC8C; &#xC804;&#xCCB4; &#xC571;&#xC744; &#xD14C;&#xC2A4;&#xD2B8; &#xD558;&#xAE30;&#xAC00; &#xC5B4;&#xB824;&#xC6CC;&#xC9C0;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB7F0; &#xACBD;&#xC6B0; <code>expectSaga</code>&#xC758; &#xAC12;&#xB4E4;&#xC744; &#xC644;&#xBCBD;&#xD558;&#xAC8C; &#xD749;&#xB0B4;&#xB0B4;&#xB294; <em>providers</em> &#xB97C; &#xC0AC;&#xC6A9; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. Provider&#xB294; 
+&#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xC640; &#xBE44;&#xC2B7;&#xD558;&#xAC8C; effect&#xB4E4;&#xC774; Redux Saga&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xAC00;&#xB85C;&#xCC55;&#xB2C8;&#xB2E4;. Redux Saga&#xAC00; effect&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xAE30; &#xC804;&#xC5D0; 
+&#xBC18;&#xD658;&#xB418;&#xB294; &#xAC00;&#xC9DC; &#xAC12;&#xC744; &#xC120;&#xD0DD;&#xD558;&#xAC70;&#xB098; effect&#xB97C; Redux Saga&#xC5D0; &#xC804;&#xB2EC; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 <!-- `expectSaga` runs your saga with Redux Saga, so it will try to resolve effects
 just like Redux Saga would in your application. This is great for integration
 testing, but sometimes it can be laborious to bootstrap your entire application
@@ -555,12 +551,17 @@ Providers are similar to middleware that allow you to intercept effects before
 they reach Redux Saga. You can choose to return a mock value instead of allowing
 Redux Saga to handle the effect, or you can pass on the effect to other
 providers or eventually Redux Saga. --></p>
-<p><code>expectSaga</code> has two flavors of providers, <em>static providers</em> and <em>dynamic
-providers</em>. Static providers are easier to compose and reuse, but dynamic
+<p><code>expectSaga</code>&#xC758; provider&#xB294; <em>static providers&#xC640; _dynamic providers</em>, 2&#xAC00;&#xC9C0;&#xB85C; &#xB098;&#xB269;&#xB2C8;&#xB2E4;.
+&#xC815;&#xC801; provider&#xB294; &#xC27D;&#xAC8C; &#xC870;&#xD569;&#xACFC; &#xC7AC;&#xC0AC;&#xC6A9;&#xC774; &#xB418;&#xACE0;, &#xB3D9;&#xC801; provider&#xB294; &#xBE44;&#xACB0;&#xC815;&#xC801;&#xC778; effect&#xB4E4;&#xB85C; &#xC720;&#xC5F0;&#xD568;&#xC744; &#xC90D;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC74C; &#xC608;&#xC81C;&#xB294; &#xC815;&#xC801; provider&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB354; &#xB9CE;&#xC740; &#xC608;&#xC81C;&#xB294; 
+<a href="http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/" target="_blank">&#xC5EC;&#xAE30;</a>
+&#xC5D0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- `expectSaga` has two flavors of providers, _static providers_ and _dynamic
+providers_. Static providers are easier to compose and reuse, but dynamic
 providers give you more flexibility with non-deterministic effects. Here is one
-example below using static providers. There are more examples of providers <a href="http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/" target="_blank">in
+example below using static providers. There are more examples of providers [in
 the
-docs</a>.</p>
+docs](http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/). --></p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { call, put, take } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
 <span class="hljs-keyword">import</span> { expectSaga } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga-test-plan&apos;</span>;
 <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> matchers <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga-test-plan/matchers&apos;</span>;
@@ -791,7 +792,7 @@ it(<span class="hljs-string">&apos;works with unit tests&apos;</span>, () =&gt; 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-05-28T15:29:24.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T15:32:36.671Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Started","level":"1.2","depth":1,"path":"docs/getting-started.md","ref":"docs/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-06-16T13:41:16.280Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-16T13:41:26.004Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

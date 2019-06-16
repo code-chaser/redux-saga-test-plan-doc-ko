@@ -99,14 +99,10 @@ it('just works!', () => {
 ### Mocking with Providers
 
 `expectSaga`는 Redux Saga로 saga를 실행하기 때문에 어플리케이션에서의 Redux Saga처럼 effect들을 
-실행하려 합니다. This is great for integration
-testing, but sometimes it can be laborious to bootstrap your entire application
-for tests or mock things like server APIs. In those cases, you can use
-_providers_ which are perfect for mocking values directly with `expectSaga`.
-Providers are similar to middleware that allow you to intercept effects before
-they reach Redux Saga. You can choose to return a mock value instead of allowing
-Redux Saga to handle the effect, or you can pass on the effect to other
-providers or eventually Redux Saga.
+실행하려 합니다. 통합 테스트에서는 이것이 장점이지만, 가끔 빠르게 전체 앱을 테스트 하기가 어려워지기도 합니다.
+이런 경우 `expectSaga`의 값들을 완벽하게 흉내내는 _providers_ 를 사용 할 수 있습니다. Provider는 
+미들웨어와 비슷하게 effect들이 Redux Saga에 접근하기 전에 가로챕니다. Redux Saga가 effect를 처리하기 전에 
+반환되는 가짜 값을 선택하거나 effect를 Redux Saga에 전달 할 수 있습니다.
 <!-- `expectSaga` runs your saga with Redux Saga, so it will try to resolve effects
 just like Redux Saga would in your application. This is great for integration
 testing, but sometimes it can be laborious to bootstrap your entire application
@@ -117,12 +113,17 @@ they reach Redux Saga. You can choose to return a mock value instead of allowing
 Redux Saga to handle the effect, or you can pass on the effect to other
 providers or eventually Redux Saga. -->
 
-`expectSaga` has two flavors of providers, _static providers_ and _dynamic
+`expectSaga`의 provider는 _static providers와 _dynamic providers_, 2가지로 나뉩니다.
+정적 provider는 쉽게 조합과 재사용이 되고, 동적 provider는 비결정적인 effect들로 유연함을 줍니다.
+다음 예제는 정적 provider를 사용하였습니다. 더 많은 예제는 
+[여기](http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/)
+에 있습니다.
+<!-- `expectSaga` has two flavors of providers, _static providers_ and _dynamic
 providers_. Static providers are easier to compose and reuse, but dynamic
 providers give you more flexibility with non-deterministic effects. Here is one
 example below using static providers. There are more examples of providers [in
 the
-docs](http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/).
+docs](http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/). -->
 
 ```js
 import { call, put, take } from 'redux-saga/effects';
