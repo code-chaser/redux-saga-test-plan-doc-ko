@@ -17,7 +17,7 @@ Redux Saga Test Plan는 saga를 쉽게 테스트 할 수 있게 단위 테스트
 <!-- Redux Saga Test Plan aims to embrace both unit testing and integration testing
 approaches to make testing your sagas easy. -->
 
-## 통합 테스트
+## 통합 테스트 하기
 
 **글로벌 `Promise`가 필요합니다.**
 
@@ -35,7 +35,7 @@ integrative approach, testing the behavior of your saga when run by Redux Saga.
 Then, you can simply test that a particular effect was yielded during the saga
 run. For this, use the `expectSaga` test function. -->
 
-### 간단한 예
+### 간단한 예제
 
 `expectSaga` 함수를 import 하고 saga 함수를 인자로 전달하세요. saga 함수의 인자들이 `expectSaga` 
 함수의 추가 인자가 될 것입니다. `expectSaga` 함수의 반환값은 Redux Saga에서 사용가능한 다양한 
@@ -96,13 +96,13 @@ it('just works!', () => {
 });
 ```
 
-### Mocking with Providers
+### Providers 로 모의(Mock)하기
 
 `expectSaga`는 Redux Saga로 saga를 실행하기 때문에 어플리케이션에서의 Redux Saga처럼 effect들을 
 실행하려 합니다. 통합 테스트에서는 이것이 장점이지만, 가끔 빠르게 전체 앱을 테스트 하기가 어려워지기도 합니다.
-이런 경우 `expectSaga`의 값들을 완벽하게 흉내내는 _providers_ 를 사용 할 수 있습니다. Provider는 
+이런 경우 `expectSaga`의 값들을 완벽하게 모의하는 _providers_ 를 사용 할 수 있습니다. Providers는 
 미들웨어와 비슷하게 effect들이 Redux Saga에 접근하기 전에 가로챕니다. Redux Saga가 effect를 처리하기 전에 
-반환되는 가짜 값을 선택하거나 effect를 Redux Saga에 전달 할 수 있습니다.
+반환되는 모의 값을 선택하거나 effect를 Redux Saga에 전달 할 수 있습니다.
 <!-- `expectSaga` runs your saga with Redux Saga, so it will try to resolve effects
 just like Redux Saga would in your application. This is great for integration
 testing, but sometimes it can be laborious to bootstrap your entire application
@@ -113,9 +113,9 @@ they reach Redux Saga. You can choose to return a mock value instead of allowing
 Redux Saga to handle the effect, or you can pass on the effect to other
 providers or eventually Redux Saga. -->
 
-`expectSaga`의 provider는 _static providers와 _dynamic providers_, 2가지로 나뉩니다.
-정적 provider는 쉽게 조합과 재사용이 되고, 동적 provider는 비결정적인 effect들로 유연함을 줍니다.
-다음 예제는 정적 provider를 사용하였습니다. 더 많은 예제는 
+`expectSaga`의 providers는 _static providers_와 _dynamic providers_, 2가지로 나뉩니다.
+정적 providers는 쉽게 조합과 재사용이 되고, 동적 providers는 비결정적인 effect들로 유연함을 줍니다.
+다음 예제는 정적 providers를 사용하였습니다. providers의 더 많은 예제는 
 [여기](http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/)
 에 있습니다.
 <!-- `expectSaga` has two flavors of providers, _static providers_ and _dynamic
@@ -176,8 +176,13 @@ it('handles errors', () => {
     .run();
 });
 ```
-
-Notice we pass in an array of tuple pairs (or array pairs) that contain a
+matcher과 가짜 값을 포함하는 튜플의 쌍(혹은 배열의 쌍)의 배열을 전달하는 것을 확인하세요. Redux Saga의
+effect 생성자 혹은 effect에 대응하는 `redux-saga-test-plan/matchers` 모듈의 matchers를 사용할
+수 있습니다. Redux Saga Test Plan의 matchers를 사용하면 `call.fn` 같은 martchers의 경우 이 함수와
+대응되는 실제 `call` effect가 포함하는 특정 `args` 에 대헤 신경쓰지 않고 사용할 수 있습니다. 두번째
+테스트는 `redux-saga-test-plan/providers` 모듈의 `throwError` 함수로 에러들을 시뮬레이트합니다. 
+이것은 서버 문제를 시뮬레이션하기 좋습니다.
+<!-- Notice we pass in an array of tuple pairs (or array pairs) that contain a
 matcher and a fake value. You can use the effect creators from Redux Saga or
 matchers from the `redux-saga-test-plan/matchers` module to match effects. The
 bonus of using Redux Saga Test Plan's matchers is that they offer special
@@ -185,13 +190,15 @@ partial matchers like `call.fn` which matches by the function without worrying
 about the specific `args` contained in the actual `call` effect. Notice in the
 second test that we can also simulate errors with the `throwError` function from
 the `redux-saga-test-plan/providers` module. This is perfect for simulating
-server problems.
+server problems. -->
 
-### Example with Reducer
+### Reducer 테스트하기
 
-One good use case for integration testing is testing your reducer too. You can
+리듀서 테스트 역시 통합 테스트의 좋은 예입니다. 리듀서 함수를 `withReducer` 메서드로 호출하는 것만으로
+리듀서를 테스트에 적용할 수 있습니다.
+<!-- One good use case for integration testing is testing your reducer too. You can
 hook up your reducer to your test by calling the `withReducer` method with your
-reducer function.
+reducer function. -->
 
 ```js
 import { call, select, take } from 'redux-saga/effects';
@@ -247,11 +254,13 @@ it('handles reducers', () => {
 });
 ```
 
-## Unit Testing
+## 단위 테스트하기
 
-If you want to ensure that your saga yields specific types of effects in a
+만약 saga가 특정한 순서로 반환되는 effect들이 라면 `testSaga` 함수를 사용하세요. 
+간단한 예제입니다:
+<!-- If you want to ensure that your saga yields specific types of effects in a
 particular order, then you'll want to use the `testSaga` function. Here's a
-simple example:
+simple example: -->
 
 ```js
 import { testSaga } from 'redux-saga-test-plan';
@@ -271,27 +280,26 @@ const action = { type: 'TEST' };
 
 it('works with unit tests', () => {
   testSaga(mainSaga, 40, 2);
-    // advance saga with `next()`
+    // `next()`로 saga 진행
     .next()
 
-    // assert that the saga yields `take` with `'HELLO'` as type
+    // saga가 `'HELLO'` 유형을 `take` 하는지 검증한다
     .take('HELLO')
 
-    // pass back in a value to a saga after it yields
+    // 반환된 값을 전달한다
     .next(action)
 
-    // assert that the saga yields `put` with the expected action
+    // saga가 예상되는 액션을 `put`하는지 검증한다
     .put({ type: 'ADD', payload: 42 })
 
     .next()
 
-    // assert that the saga yields a `call` to `identity` with
-    // the `action` argument
+    // saga가 `identity`를 `action` 인자로 `call`하는지를 검증한다
     .call(identity, action)
 
     .next()
 
-    // assert that the saga is finished
+    // saga가 종료된 것을 검증한다
     .isDone();
 });
 ```
