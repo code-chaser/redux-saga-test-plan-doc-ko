@@ -81,7 +81,7 @@ it('just works!', () => {
   };
 
   return expectSaga(userSaga, api)
-    // 결국은 실행될 `put`을 검증합니다.
+    // 최종적으로 `put`이 실행되는지를 검증합니다.
     .put({
       type: 'RECEIVE_USER',
       payload: { id: 42, name: 'Tucker' },
@@ -308,7 +308,7 @@ it('works with unit tests', () => {
 
 - [소개](README.md)
 - [시작하기](docs/getting-started.md)
-- [통합테스트](docs/integration-testing/README.md)
+- [통합테스트하기](docs/integration-testing/README.md)
   - [Effect Creator Assertions](docs/integration-testing/effect-creators.md)
   - [Dispatching](docs/integration-testing/dispatching.md)
   - [Timeout](docs/integration-testing/timeout.md)
