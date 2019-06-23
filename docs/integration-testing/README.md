@@ -2,7 +2,7 @@
 
 **글로벌 `Promise`가 필요합니다.**
 
-Redux Saga Test Plan은 통합 테스트를 위해 saga가 반환하는 effect를 검증하기 위한 API를
+Redux Saga Test Plan은 통합 테스트를 위해 saga가 반환하는 이팩트를 검증하기 위한 API를
 반환하는 `expectSaga`함수를 제공합니다. `expectSaga`를 사용하기 위해서는 제너레이터 함수를 
 첫 번째 인수로 전달합니다. 그리고 그 제너레이터 함수에 전달될 인수들을 추가적으로 전달합니다.
 <!-- For integration testing, Redux Saga Test Plan exports an `expectSaga` function
