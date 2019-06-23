@@ -5,7 +5,7 @@
 - [통합 테스트하기](docs/integration-testing/README.md)
   - [이펙트 생성자 검증](docs/integration-testing/effect-creators.md)
   - [디스패치하기](docs/integration-testing/dispatching.md)
-  - [Timeout](docs/integration-testing/timeout.md)
+  - [시간제한](docs/integration-testing/timeout.md)
   - [State](docs/integration-testing/state.md)
   - [Mocking](docs/integration-testing/mocking/README.md)
     - [Static Providers](docs/integration-testing/mocking/static-providers.md)
