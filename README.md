@@ -308,8 +308,8 @@ it('works with unit tests', () => {
 
 - [소개](README.md)
 - [시작하기](docs/getting-started.md)
-- [통합테스트하기](docs/integration-testing/README.md)
-  - [Effect Creator Assertions](docs/integration-testing/effect-creators.md)
+- [통합 테스트하기](docs/integration-testing/README.md)
+  - [effect 생성자 검증](docs/integration-testing/effect-creators.md)
   - [Dispatching](docs/integration-testing/dispatching.md)
   - [Timeout](docs/integration-testing/timeout.md)
   - [State](docs/integration-testing/state.md)
