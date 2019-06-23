@@ -1,8 +1,8 @@
 # 시간제한
 
 `expectSaga`는 비동기적으로 saga를 실행하기 때문에, saga가 너무 오래 실행될 경우을 대비해 기본적인
-시간제한을 가진다. 무한 루프의 다중 비둥기 액션을 가지는 saga나 `takeEvery` 같은 헬퍼함수를 사용하는
-saga에 필요하다. `expectSaga`는 시간이 초과되면 경고메시지를 출력하고 saga를 취소시킬 것이다.
+시간제한을 가집니다. 무한 루프의 다중 비둥기 액션을 가지는 saga나 `takeEvery` 같은 헬퍼함수를 사용하는
+saga에 필요합니다. `expectSaga`는 시간이 초과되면 경고메시지를 출력하고 saga를 중지합니다.
 <!-- Because `expectSaga` runs sagas asynchronously, it has a default timeout in case
 your saga runs too long. This is needed for sagas that have multiple
 asynchronous actions, that have infinite loops, or that use saga helpers like
@@ -31,8 +31,8 @@ it('times out', () => {
 ### 경고 없애기
 
 경고 메시지는 무한 루프 없이도 너무 오래 걸리는 saga를 테스트하기에도 유용합니다. 무한 루프를 가지는
-saga라도 시간 초과해서 계속하기를 원할 수 있다. 그렇다면 경고 메시지를 없애기 위해 `silentRun`
-메서드를 사용하면 된다. 이 함수는 `run` 메서드와 동일하지만 Redux Saga Test Plan의 시간 초과
+saga라도 시간 초과해서 계속하기를 원할 수 있습니다. 그렇다면 경고 메시지를 없애기 위해 `silentRun`
+메서드를 사용하면 됩니다. 이 함수는 `run` 메서드와 동일하지만 Redux Saga Test Plan의 시간 초과
 경고를 무시합니다. **알림:** 테스트 프레임워크의 모든 시간 초과 경고를 무시하지는 않습니다. 
 (예를 들면 Jest 같은)
 <!-- The warning message is typically useful if a saga without an infinite loop is
