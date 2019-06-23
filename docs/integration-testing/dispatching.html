@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Dispatching · GitBook</title>
+        <title>디스패치하기 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -122,7 +122,7 @@
                 <a href="./">
             
                     
-                    통합테스트하기
+                    통합 테스트하기
             
                 </a>
             
@@ -136,7 +136,7 @@
                 <a href="effect-creators.html">
             
                     
-                    Effect Creator Assertions
+                    이펙트 생성자 검증
             
                 </a>
             
@@ -149,7 +149,7 @@
                 <a href="dispatching.html">
             
                     
-                    Dispatching
+                    디스패치하기
             
                 </a>
             
@@ -438,7 +438,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Dispatching</a>
+        <a href="../.." >디스패치하기</a>
     </h1>
 </div>
 
@@ -453,13 +453,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="dispatching-actions">Dispatching Actions</h1>
-<p>Most sagas use the <code>take</code> effect to wait on Redux actions. Because <code>expectSaga</code>
-runs your saga as normal, it will block on yielded <code>take</code> effects. To ensure
-your saga can keep running, <code>expectSaga</code> also has a <code>dispatch</code> method. Before
+                                <h1 id="&#xC561;&#xC158;-&#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD558;&#xAE30;">&#xC561;&#xC158; &#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD558;&#xAE30;</h1>
+<p>&#xB300;&#xBD80;&#xBD84;&#xC758; saga&#xB4E4;&#xC740; Redux &#xC561;&#xC158;&#xC744; &#xB300;&#xAE30;&#xD558;&#xB294; <code>take</code> &#xC774;&#xD329;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. <code>expectSaga</code>&#xB294;
+saga&#xB97C; &#xB2E8;&#xC21C;&#xD788; &#xC2E4;&#xD589;&#xD558;&#xAE30;&#xB9CC; &#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; <code>take</code> &#xC774;&#xD329;&#xD2B8;&#xAC00; &#xBC18;&#xD658;&#xB418;&#xBA74; saga &#xC2E4;&#xD589;&#xC774; &#xBA48;&#xCD94;&#xAC8C;&#xB429;&#xB2C8;&#xB2E4;.
+saga&#xB97C; &#xACC4;&#xC18D; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; (&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; saga&#xAC00; &#xADF8;&#xB7EC;&#xD558;&#xB4EF;) <code>expectSaga</code> &#xB610;&#xD55C; <code>dispatch</code>&#xAC00;
+&#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. saga&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC804;&#xC5D0; saga&#xAC00; &#xAE30;&#xB300;&#xD558;&#xB294; &#xBAA8;&#xB4E0; &#xC791;&#xC5C5;&#xC744; &#xC6D0;&#xD558;&#xB294; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD558;&#xC138;&#xC694;.
+<code>expectSaga</code>&#xB294; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; &#xC561;&#xC158;&#xB4E4;&#xC744; &#xD050;&#xC5D0; &#xB123;&#xACE0; &#xD544;&#xC694;&#xD560;&#xB54C;&#xB9C8;&#xB2E4; &#xB2F9;&#xC2E0;&#xC744; &#xB300;&#xC2E0;&#xD574;&#xC11C; &#xC561;&#xC158;&#xB4E4;&#xC744; &#xB514;&#xC2A4;&#xD328;&#xCE58;
+&#xD560;&#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+<!-- Most sagas use the `take` effect to wait on Redux actions. Because `expectSaga`
+runs your saga as normal, it will block on yielded `take` effects. To ensure
+your saga can keep running, `expectSaga` also has a `dispatch` method. Before
 running your saga, dispatch any actions you expect your saga to take in the
-order it takes them. Internally, <code>expectSaga</code> will queue the actions and
-dispatch them on your behalf as needed.</p>
+order it takes them. Internally, `expectSaga` will queue the actions and
+dispatch them on your behalf as needed. --></p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { put } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
 <span class="hljs-keyword">import</span> { expectSaga } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga-test-plan&apos;</span>;
 
@@ -472,26 +478,27 @@ dispatch them on your behalf as needed.</p>
 
 it(<span class="hljs-string">&apos;handles dispatching actions&apos;</span>, () =&gt; {
   <span class="hljs-keyword">return</span> expectSaga(mainSaga, <span class="hljs-number">40</span>, <span class="hljs-number">2</span>)
-    <span class="hljs-comment">// note that assertions don&apos;t have to be in order</span>
+    <span class="hljs-comment">// &#xAC80;&#xC99D;&#xC740; &#xC21C;&#xC11C;&#xC640; &#xC0C1;&#xAD00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
     .put({ type: <span class="hljs-string">&apos;DONE&apos;</span> })
     .put({ type: <span class="hljs-string">&apos;ADD&apos;</span>, payload: <span class="hljs-number">42</span> })
 
-    <span class="hljs-comment">// dispatch any actions your saga will `take`</span>
-    <span class="hljs-comment">// dispatched actions MUST be in order</span>
+    <span class="hljs-comment">// saga&#xAC00; `take`&#xD55C; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xC561;&#xC158;&#xC744; &#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD558;&#xC138;&#xC694;.</span>
     .dispatch({ type: <span class="hljs-string">&apos;HELLO&apos;</span> })
     .dispatch({ type: <span class="hljs-string">&apos;WORLD&apos;</span> })
 
     .run();
 });
 </code></pre>
-<h2 id="dispatch-actions-while-saga-is-running">Dispatch actions while saga is running</h2>
-<p>You can also dispatch actions while a saga is running. This is useful for
-delaying actions so Redux Saga Test Plan doesn&apos;t dispatch them too quickly.</p>
+<h2 id="&#xC2DC;&#xAC04;&#xC774;-&#xAC78;&#xB9AC;&#xB294;-&#xC561;&#xC158;-&#xB514;&#xC2A4;&#xD328;&#xCE58;">&#xC2DC;&#xAC04;&#xC774; &#xAC78;&#xB9AC;&#xB294; &#xC561;&#xC158; &#xB514;&#xC2A4;&#xD328;&#xCE58;</h2>
+<p>saga&#xC758; &#xC2E4;&#xD589;&#xC5D0; &#xC2DC;&#xAC04;&#xC774; &#xAC78;&#xB9AC;&#xB294; &#xC561;&#xC158;&#xC744; &#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xACBD;&#xC6B0;, Redux Saga Test Plan&#xC774; &#xB108;&#xBB34; &#xBE60;&#xB974;&#xAC8C;
+&#xB514;&#xC2A4;&#xD328;&#xCE58; &#xBABB;&#xD558;&#xB3C4;&#xB85D; &#xC561;&#xC158;&#xC744; &#xC9C0;&#xC5F0;&#xD558;&#xB294;&#xAC83;&#xC774; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- You can also dispatch actions while a saga is running. This is useful for
+delaying actions so Redux Saga Test Plan doesn't dispatch them too quickly. --></p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">mainSaga</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-comment">// Received almost immediately</span>
+  <span class="hljs-comment">// &#xAC70;&#xC758; &#xBC14;&#xB85C; &#xC2E4;&#xD589;&#xB428;</span>
   <span class="hljs-keyword">yield</span> take(<span class="hljs-string">&apos;FOO&apos;</span>);
 
-  <span class="hljs-comment">// Received after 250ms</span>
+  <span class="hljs-comment">// 250ms &#xAC78;&#xB9BC;</span>
   <span class="hljs-keyword">yield</span> take(<span class="hljs-string">&apos;BAR&apos;</span>);
   <span class="hljs-keyword">yield</span> put({ type: <span class="hljs-string">&apos;DONE&apos;</span> });
 }
@@ -515,15 +522,17 @@ it(<span class="hljs-string">&apos;can dispatch actions while running&apos;</spa
   });
 });
 </code></pre>
-<h2 id="delaying-dispatching-actions-with-delay">Delaying dispatching actions with <code>.delay()</code></h2>
-<p>While being able to dispatch actions while the saga is running has use cases
+<h2 id="delay&#xB85C;-&#xC561;&#xC158;&#xC744;-&#xC9C0;&#xC5F0;&#xC2DC;&#xCF1C;&#xC11C;-&#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD558;&#xAE30;"><code>.delay()</code>&#xB85C; &#xC561;&#xC158;&#xC744; &#xC9C0;&#xC5F0;&#xC2DC;&#xCF1C;&#xC11C; &#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD558;&#xAE30;</h2>
+<p>&#xC2E4;&#xD589; &#xC2DC;&#xAC04;&#xC774; &#xAC78;&#xB9AC;&#xB294; &#xC561;&#xC158;&#xC744; &#xB514;&#xC2A4;&#xD328;&#xCE58;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC9C0;&#xC5F0;&#xC2DC;&#xD0A4;&#xB294; &#xAC83; &#xB9D0;&#xACE0;&#xB3C4; &#xB2E4;&#xB978; &#xBC29;&#xBC95;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC561;&#xC158;&#xC774; 
+&#xB514;&#xC2A4;&#xD328;&#xCE58;&#xB418;&#xAE30;&#xB9CC;&#xC744; &#xC9C0;&#xC5F0;&#xC2DC;&#xD0A4;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; <code>delay</code> &#xC0AC;&#xC6A9;&#xD558;&#xC138;&#xC694;. <code>delay</code>&#xC758; &#xC778;&#xC790;&#xB294; &#xC9C0;&#xC5F0;&#xC2DC;&#xD0AC; &#xC2DC;&#xAC04;&#xC785;&#xB2C8;&#xB2E4;. 
+<!-- While being able to dispatch actions while the saga is running has use cases
 besides only delaying, if you just want to delay dispatched actions, you can use
-the <code>delay</code> method. It takes a delay time as its only argument.</p>
+the `delay` method. It takes a delay time as its only argument. --></p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">mainSaga</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-comment">// Received almost immediately</span>
+  <span class="hljs-comment">// &#xAC70;&#xC758; &#xBC14;&#xB85C; &#xC2E4;&#xD589;&#xB428;</span>
   <span class="hljs-keyword">yield</span> take(<span class="hljs-string">&apos;FOO&apos;</span>);
 
-  <span class="hljs-comment">// Received after 250ms</span>
+  <span class="hljs-comment">// 250ms &#xAC78;&#xB9BC;</span>
   <span class="hljs-keyword">yield</span> take(<span class="hljs-string">&apos;BAR&apos;</span>);
   <span class="hljs-keyword">yield</span> put({ type: <span class="hljs-string">&apos;DONE&apos;</span> });
 }
@@ -564,7 +573,7 @@ it(<span class="hljs-string">&apos;can delay actions&apos;</span>, () =&gt; {
 
             
                 
-                <a href="effect-creators.html" class="navigation navigation-prev " aria-label="Previous page: Effect Creator Assertions">
+                <a href="effect-creators.html" class="navigation navigation-prev " aria-label="Previous page: 이펙트 생성자 검증">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -580,7 +589,7 @@ it(<span class="hljs-string">&apos;can delay actions&apos;</span>, () =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dispatching","level":"1.3.2","depth":2,"next":{"title":"Timeout","level":"1.3.3","depth":2,"path":"docs/integration-testing/timeout.md","ref":"docs/integration-testing/timeout.md","articles":[]},"previous":{"title":"Effect Creator Assertions","level":"1.3.1","depth":2,"path":"docs/integration-testing/effect-creators.md","ref":"docs/integration-testing/effect-creators.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/dispatching.md","mtime":"2019-05-08T15:39:03.284Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T03:12:27.321Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"디스패치하기","level":"1.3.2","depth":2,"next":{"title":"Timeout","level":"1.3.3","depth":2,"path":"docs/integration-testing/timeout.md","ref":"docs/integration-testing/timeout.md","articles":[]},"previous":{"title":"이펙트 생성자 검증","level":"1.3.1","depth":2,"path":"docs/integration-testing/effect-creators.md","ref":"docs/integration-testing/effect-creators.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/dispatching.md","mtime":"2019-06-23T08:30:28.800Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T08:30:44.576Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
