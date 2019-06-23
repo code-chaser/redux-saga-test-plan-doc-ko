@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Timeout · GitBook</title>
+        <title>시간제한 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -162,7 +162,7 @@
                 <a href="timeout.html">
             
                     
-                    Timeout
+                    시간제한
             
                 </a>
             
@@ -438,7 +438,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Timeout</a>
+        <a href="../.." >시간제한</a>
     </h1>
 </div>
 
@@ -453,12 +453,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="timeout">Timeout</h1>
-<p>Because <code>expectSaga</code> runs sagas asynchronously, it has a default timeout in case
+                                <h1 id="&#xC2DC;&#xAC04;&#xC81C;&#xD55C;">&#xC2DC;&#xAC04;&#xC81C;&#xD55C;</h1>
+<p><code>expectSaga</code>&#xB294; &#xBE44;&#xB3D9;&#xAE30;&#xC801;&#xC73C;&#xB85C; saga&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, saga&#xAC00; &#xB108;&#xBB34; &#xC624;&#xB798; &#xC2E4;&#xD589;&#xB420; &#xACBD;&#xC6B0;&#xC744; &#xB300;&#xBE44;&#xD574; &#xAE30;&#xBCF8;&#xC801;&#xC778;
+&#xC2DC;&#xAC04;&#xC81C;&#xD55C;&#xC744; &#xAC00;&#xC9C4;&#xB2E4;. &#xBB34;&#xD55C; &#xB8E8;&#xD504;&#xC758; &#xB2E4;&#xC911; &#xBE44;&#xB465;&#xAE30; &#xC561;&#xC158;&#xC744; &#xAC00;&#xC9C0;&#xB294; saga&#xB098; <code>takeEvery</code> &#xAC19;&#xC740; &#xD5EC;&#xD37C;&#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;
+saga&#xC5D0; &#xD544;&#xC694;&#xD558;&#xB2E4;. <code>expectSaga</code>&#xB294; &#xC2DC;&#xAC04;&#xC774; &#xCD08;&#xACFC;&#xB418;&#xBA74; &#xACBD;&#xACE0;&#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xACE0; saga&#xB97C; &#xCDE8;&#xC18C;&#xC2DC;&#xD0AC; &#xAC83;&#xC774;&#xB2E4;.
+<!-- Because `expectSaga` runs sagas asynchronously, it has a default timeout in case
 your saga runs too long. This is needed for sagas that have multiple
 asynchronous actions, that have infinite loops, or that use saga helpers like
-<code>takeEvery</code>. <code>expectSaga</code> will cancel your saga if it times out and print a
-warning message.</p>
+`takeEvery`. `expectSaga` will cancel your saga if it times out and print a
+warning message. --></p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">mainSaga</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
     <span class="hljs-keyword">const</span> action = <span class="hljs-keyword">yield</span> take(<span class="hljs-string">&apos;READY&apos;</span>);
@@ -471,49 +474,59 @@ it(<span class="hljs-string">&apos;times out&apos;</span>, () =&gt; {
     .put({ type: <span class="hljs-string">&apos;DATA&apos;</span>, payload: <span class="hljs-number">42</span> })
     .dispatch({ type: <span class="hljs-string">&apos;READY&apos;</span>, payload: <span class="hljs-number">42</span> })
 
-    <span class="hljs-comment">// saga never terminates on its own</span>
-    <span class="hljs-comment">// implicit timeout of 250ms will cancel saga</span>
-    <span class="hljs-comment">// and print warning message to console</span>
+    <span class="hljs-comment">// saga&#xB294; &#xC2A4;&#xC2A4;&#xB85C; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC74C;</span>
+    <span class="hljs-comment">// 250ms&#xAC00; &#xC9C0;&#xB098;&#xBA74; saga&#xAC00; &#xCDE8;&#xC18C;&#xB418;&#xACE0; &#xCF58;&#xC194;&#xC5D0; &#xACBD;&#xACE0; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xCD9C;&#xB825;&#xD568;</span>
     .run();
 });
 </code></pre>
-<h3 id="silencing-warnings">Silencing Warnings</h3>
-<p>The warning message is typically useful if a saga without an infinite loop is
+<h3 id="&#xACBD;&#xACE0;-&#xC5C6;&#xC560;&#xAE30;">&#xACBD;&#xACE0; &#xC5C6;&#xC560;&#xAE30;</h3>
+<p>&#xACBD;&#xACE0; &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xBB34;&#xD55C; &#xB8E8;&#xD504; &#xC5C6;&#xC774;&#xB3C4; &#xB108;&#xBB34; &#xC624;&#xB798; &#xAC78;&#xB9AC;&#xB294; saga&#xB97C; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;&#xC5D0;&#xB3C4; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xBB34;&#xD55C; &#xB8E8;&#xD504;&#xB97C; &#xAC00;&#xC9C0;&#xB294;
+saga&#xB77C;&#xB3C4; &#xC2DC;&#xAC04; &#xCD08;&#xACFC;&#xD574;&#xC11C; &#xACC4;&#xC18D;&#xD558;&#xAE30;&#xB97C; &#xC6D0;&#xD560; &#xC218; &#xC788;&#xB2E4;. &#xADF8;&#xB807;&#xB2E4;&#xBA74; &#xACBD;&#xACE0; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC5C6;&#xC560;&#xAE30; &#xC704;&#xD574; <code>silentRun</code>
+&#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB41C;&#xB2E4;. &#xC774; &#xD568;&#xC218;&#xB294; <code>run</code> &#xBA54;&#xC11C;&#xB4DC;&#xC640; &#xB3D9;&#xC77C;&#xD558;&#xC9C0;&#xB9CC; Redux Saga Test Plan&#xC758; &#xC2DC;&#xAC04; &#xCD08;&#xACFC;
+&#xACBD;&#xACE0;&#xB97C; &#xBB34;&#xC2DC;&#xD569;&#xB2C8;&#xB2E4;. <strong>&#xC54C;&#xB9BC;:</strong> &#xD14C;&#xC2A4;&#xD2B8; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xC758; &#xBAA8;&#xB4E0; &#xC2DC;&#xAC04; &#xCD08;&#xACFC; &#xACBD;&#xACE0;&#xB97C; &#xBB34;&#xC2DC;&#xD558;&#xC9C0;&#xB294; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. 
+(&#xC608;&#xB97C; &#xB4E4;&#xBA74; Jest &#xAC19;&#xC740;)
+<!-- The warning message is typically useful if a saga without an infinite loop is
 taking too long. If you have a saga with an infinite loop, though, you will want
 it to time out. Therefore, to silence the warning message, you can call the
-<code>silentRun</code> method instead. It functions the same as the <code>run</code> method but
-suppresses timeout warnings from Redux Saga Test Plan. <strong>NOTE:</strong> this will not
-suppress any timeout warnings from your test runner (e.g. Jest).</p>
+`silentRun` method instead. It functions the same as the `run` method but
+suppresses timeout warnings from Redux Saga Test Plan. **NOTE:** this will not
+suppress any timeout warnings from your test runner (e.g. Jest). --></p>
 <pre><code class="lang-js">it(<span class="hljs-string">&apos;can be silenced&apos;</span>, () =&gt; {
   <span class="hljs-keyword">return</span> expectSaga(mainSaga)
     .put({ type: <span class="hljs-string">&apos;DATA&apos;</span>, payload: <span class="hljs-number">42</span> })
     .dispatch({ type: <span class="hljs-string">&apos;READY&apos;</span>, payload: <span class="hljs-number">42</span> })
 
-    <span class="hljs-comment">// no warning message will be printed</span>
-    <span class="hljs-comment">// this is useful if you expect the saga to time out</span>
+    <span class="hljs-comment">// &#xACBD;&#xACE0; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xCD9C;&#xB825;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+    <span class="hljs-comment">// &#xC2DC;&#xAC04; &#xCD08;&#xACFC;&#xD558;&#xB294;&#xAC83;&#xC774; &#xC608;&#xCE21;&#xB420; &#xACBD;&#xC6B0; &#xC720;&#xC6A9;&#xD568;</span>
     .silentRun();
 });
 </code></pre>
-<p>The old method of silencing timeouts by passing a <code>silenceTimeout</code> option into
-<code>run</code> is still available, but you&apos;re encouraged to use the cleaner <code>silentRun</code>
-method.</p>
+<p><code>run</code> &#xBA54;&#xC11C;&#xB4DC;&#xC5D0; &#xC635;&#xC158;&#xC73C;&#xB85C; <code>silenceTimeout</code>&#xB97C; &#xC804;&#xB2EC;&#xD568;&#xC73C;&#xB85C;&#xC368; &#xC2DC;&#xAC04; &#xCD08;&#xACFC;&#xB97C; &#xBB34;&#xC2DC;&#xD558;&#xB294; &#xC608;&#xC804; &#xBC29;&#xBC95;&#xB3C4; &#xC5EC;&#xC804;&#xD788; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; <code>silentRun</code> &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xB354; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- The old method of silencing timeouts by passing a `silenceTimeout` option into
+`run` is still available, but you're encouraged to use the cleaner `silentRun`
+method. --></p>
 <pre><code class="lang-js">it(<span class="hljs-string">&apos;can be silenced&apos;</span>, () =&gt; {
   <span class="hljs-keyword">return</span> expectSaga(mainSaga)
     .put({ type: <span class="hljs-string">&apos;DATA&apos;</span>, payload: <span class="hljs-number">42</span> })
     .dispatch({ type: <span class="hljs-string">&apos;READY&apos;</span>, payload: <span class="hljs-number">42</span> })
 
-    <span class="hljs-comment">// still works, but more to type</span>
+    <span class="hljs-comment">// &#xC5EC;&#xC804;&#xD788; &#xC791;&#xB3D9;&#xD558;&#xC9C0;&#xB9CC; &#xD0C0;&#xC774;&#xD551;&#xD560;&#xAC8C; &#xB9CE;&#xB2E4;.</span>
     .run({ silenceTimeout: <span class="hljs-literal">true</span> });
 });
 </code></pre>
-<h3 id="adjusting-timeout">Adjusting Timeout</h3>
-<p>Instead of silencing warnings, you can adjust the timeout length. The default
+<h3 id="&#xC2DC;&#xAC04;&#xC81C;&#xD55C;-&#xC801;&#xC6A9;&#xD558;&#xAE30;">&#xC2DC;&#xAC04;&#xC81C;&#xD55C; &#xC801;&#xC6A9;&#xD558;&#xAE30;</h3>
+<p>&#xC2DC;&#xAC04;&#xC81C;&#xD55C; &#xAE38;&#xC774;&#xB97C; &#xC870;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE30;&#xBCF8;&#xAC12;&#xC740; 250ms &#xC785;&#xB2C8;&#xB2E4;. <code>expectSaga</code>&#xC758; <code>DEFAULT_TIMEOUT</code>
+&#xD504;&#xB85C;&#xD37C;&#xD2F0; &#xAC12;&#xC744; ms&#xB2E8;&#xC704;&#xB85C; &#xC124;&#xC815;&#xD558;&#xC5EC; &#xC2DC;&#xAC04;&#xC81C;&#xD55C;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- Instead of silencing warnings, you can adjust the timeout length. The default
 timeout length is 250 milliseconds. You can change the default timeout by
-setting the <code>DEFAULT_TIMEOUT</code> property of <code>expectSaga</code> in milliseconds.</p>
+setting the `DEFAULT_TIMEOUT` property of `expectSaga` in milliseconds. --></p>
 <pre><code class="lang-js">expectSaga.DEFAULT_TIMEOUT = <span class="hljs-number">500</span>; <span class="hljs-comment">// set it to 500ms</span>
 </code></pre>
-<p>If you want to override the timeout for a particular test case, then you can
-pass in a timeout length to the <code>run</code> (or <code>silentRun</code>) method.</p>
+<p>&#xD2B9;&#xBCC4;&#xD55C; &#xACBD;&#xC6B0; &#xD504;&#xB85C;&#xD37C;&#xD2F0;&#xC758; &#xAE30;&#xBCF8;&#xAC12;&#xC744; &#xBB34;&#xC2DC;&#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74;, <code>run</code> (&#xD639;&#xC740; <code>silentRun</code>) &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xB54C;
+&#xC2DC;&#xAC04; &#xC81C;&#xD55C; &#xAE38;&#xC774;&#xB97C; &#xC778;&#xC790;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
+<!-- If you want to override the timeout for a particular test case, then you can
+pass in a timeout length to the `run` (or `silentRun`) method. --></p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> delay = time =&gt; <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(resolve =&gt; setTimeout(resolve, time));
 
 <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">mainSaga</span>(<span class="hljs-params"></span>) </span>{
@@ -525,20 +538,23 @@ it(<span class="hljs-string">&apos;can have a different timeout length&apos;</sp
   <span class="hljs-keyword">return</span> expectSaga(mainSaga)
     .put({ type: <span class="hljs-string">&apos;HELLO&apos;</span> })
 
-    <span class="hljs-comment">// saga will take at least 300ms,</span>
-    <span class="hljs-comment">// so time out after 500ms to be safe</span>
+    <span class="hljs-comment">// saga&#xB294; &#xCD5C;&#xC18C; 300ms &#xAC78;&#xB9BC;</span>
+    <span class="hljs-comment">// &#xC2DC;&#xAC04;&#xC81C;&#xD55C;&#xC774; 500ms&#xC774;&#xBBC0;&#xB85C; &#xC815;&#xC0C1;&#xC801;&#xC784;</span>
     .run(<span class="hljs-number">500</span>);
 });
 </code></pre>
-<p>Alternatively, you can opt out of the timeout behavior and force <code>expectSaga</code> to
-wait until your saga is done on its own by passing in <code>false</code> to the <code>run</code>
-method. <strong>WARNING:</strong> this won&apos;t work with sagas with infinite loops because the
-saga will never finish on its own.</p>
+<p>&#xB610;&#xB294; <code>run</code> &#xBA54;&#xC11C;&#xB4DC;&#xC5D0; <code>false</code>&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xC5EC; saga&#xAC00; &#xC2A4;&#xC2A4;&#xB85C; &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; <code>expectSaga</code>&#xAC00; &#xAE30;&#xB2E4;&#xB9AC;&#xAC8C;
+&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <strong>&#xACBD;&#xACE0;:</strong> &#xBB34;&#xD55C; &#xB8E8;&#xD504;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xB294; saga &#xC77C;&#xACBD;&#xC6B0; &#xC2A4;&#xC2A4;&#xB85C; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xB3D9;&#xC791;&#xD558;&#xC9C0;
+&#xC54A;&#xC744; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<!-- Alternatively, you can opt out of the timeout behavior and force `expectSaga` to
+wait until your saga is done on its own by passing in `false` to the `run`
+method. **WARNING:** this won't work with sagas with infinite loops because the
+saga will never finish on its own. -->
 <pre><code class="lang-js">it(<span class="hljs-string">&apos;never times out&apos;</span>, () =&gt; {
   <span class="hljs-keyword">return</span> expectSaga(mainSaga)
     .put({ type: <span class="hljs-string">&apos;HELLO&apos;</span> })
 
-    <span class="hljs-comment">// wait until the saga finishes on its own</span>
+    <span class="hljs-comment">// saga&#xAC00; &#xC2A4;&#xC2A4;&#xB85C; &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9BC;</span>
     .run(<span class="hljs-literal">false</span>);
 });
 </code></pre>
@@ -585,7 +601,7 @@ saga will never finish on its own.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Timeout","level":"1.3.3","depth":2,"next":{"title":"State","level":"1.3.4","depth":2,"path":"docs/integration-testing/state.md","ref":"docs/integration-testing/state.md","articles":[]},"previous":{"title":"디스패치하기","level":"1.3.2","depth":2,"path":"docs/integration-testing/dispatching.md","ref":"docs/integration-testing/dispatching.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/timeout.md","mtime":"2019-05-08T15:39:03.284Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T08:30:44.576Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"시간제한","level":"1.3.3","depth":2,"next":{"title":"State","level":"1.3.4","depth":2,"path":"docs/integration-testing/state.md","ref":"docs/integration-testing/state.md","articles":[]},"previous":{"title":"디스패치하기","level":"1.3.2","depth":2,"path":"docs/integration-testing/dispatching.md","ref":"docs/integration-testing/dispatching.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/timeout.md","mtime":"2019-06-23T13:26:56.839Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T13:27:06.979Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
