@@ -1,13 +1,19 @@
-# Static Providers
+# 정적 프로바이더
 
-You can provide mock values in a terse manner via static providers. Pass in
+정적 프로바이더를 통해 간결한 방식으로 모의 값을 제공할 수 있습니다. `provide` 메서드에
+튜플 쌍의 배열(혹은 배열 쌍의 배열)을 인자로 제공합니다. 각 쌍의 첫번째 원소는 이펙트에 매칭할 매처이고 
+두번째 원소는 이팩트에 제공하려는 모의값입니다. `redux-saga-test-plan/matchers`의 매처대신
+`redux-saga/effects`의 이팩트들을 사용할 수 있습니다. Redux Saga Test Plan의 매처를
+사용하면 부분 매칭이 가능합니다. 예를들면 `call` 이팩트에 대응되는 `call.fn`을 인자값을 
+신경쓰지 않고 사용할 수 있습니다.
+<!-- You can provide mock values in a terse manner via static providers. Pass in
 an array of tuple pairs (array pairs) into the `provide` method. For each pair,
 the first element should be a matcher for matching the effect and the second
 effect should be the mock value you want to provide. You can use effect creators
 from `redux-saga/effects` as matchers or import matchers from
 `redux-saga-test-plan/matchers`. The benefit of using Redux Saga Test Plan's
 matchers is that they also offer partial matching. For example, you can use
-`call.fn` to match any calls to a function without regard to its arguments.
+`call.fn` to match any calls to a function without regard to its arguments. -->
 
 ```js
 import { call, put, select } from 'redux-saga/effects';
@@ -26,10 +32,10 @@ function* saga() {
 it('provides a value for the API call', () => {
   return expectSaga(saga)
     .provide([
-      // Use the `select` effect creator from Redux Saga to match
+      // Redux Saga의 `select` 이팩트 생성자를 사용
       [select(selectors.getId), 42],
 
-      // Use the `call.fn` matcher from Redux Saga Test Plan
+      // Redux Saga Test Plan 의 `call.fn` 매처를 사용
       [matchers.call.fn(api.fetchUser), { id: 42, name: 'John Doe' }],
     ])
     .put({
@@ -40,12 +46,14 @@ it('provides a value for the API call', () => {
 });
 ```
 
-## Matchers
+## 매처
 
-Inside the `redux-saga-test-plan/matchers` module, there are matchers for most
+Redux Saga에서 사용되는 대부분의 이팩트 생성자들의 대한 매처들이 `redux-saga-test-plan/matchers`
+모듈에 있습니다. 이팩트 생성자들에 대해서는 Redux Saga [문서](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators)를 확인하세요.
+<!-- Inside the `redux-saga-test-plan/matchers` module, there are matchers for most
 of the effect creators available in Redux Saga. You can reference effect
 creators in Redux Saga's docs
-[here](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators).
+[here](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators). -->
 
 - `actionChannel(pattern, [buffer])`
 - `apply(context, fn, args)`
@@ -244,7 +252,7 @@ it('works with dynamic static providers', () => {
 });
 ```
 
-## Other Examples
+## Other Examples
 
 ### Parallel Effects via `all`
 

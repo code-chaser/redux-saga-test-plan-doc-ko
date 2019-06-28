@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Saga Helpers · GitBook</title>
+        <title>헬퍼 함수 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -122,7 +122,7 @@
                 <a href="../integration-testing/">
             
                     
-                    통합 테스트하기
+                    통합 테스트
             
                 </a>
             
@@ -149,7 +149,7 @@
                 <a href="../integration-testing/dispatching.html">
             
                     
-                    디스패치하기
+                    디스패치
             
                 </a>
             
@@ -175,7 +175,7 @@
                 <a href="../integration-testing/state.html">
             
                     
-                    State
+                    상태
             
                 </a>
             
@@ -188,7 +188,7 @@
                 <a href="../integration-testing/mocking/">
             
                     
-                    Mocking
+                    모의하기
             
                 </a>
             
@@ -202,7 +202,7 @@
                 <a href="../integration-testing/mocking/static-providers.html">
             
                     
-                    Static Providers
+                    정적 프로바이더
             
                 </a>
             
@@ -215,7 +215,7 @@
                 <a href="../integration-testing/mocking/dynamic-providers.html">
             
                     
-                    Dynamic Providers
+                    동적 프로바이더
             
                 </a>
             
@@ -329,7 +329,7 @@
                 <a href="./">
             
                     
-                    Unit Testing
+                    단위 테스트
             
                 </a>
             
@@ -343,7 +343,7 @@
                 <a href="error-messages.html">
             
                     
-                    Error Messages
+                    에러 메세지
             
                 </a>
             
@@ -356,7 +356,7 @@
                 <a href="effect-creators.html">
             
                     
-                    Effect Creators
+                    이팩트 생성자
             
                 </a>
             
@@ -369,7 +369,7 @@
                 <a href="saga-helpers.html">
             
                     
-                    Saga Helpers
+                    헬퍼 함수
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="general-assertions.html">
             
                     
-                    General Assertions
+                    기타 검증 함수
             
                 </a>
             
@@ -438,7 +438,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Saga Helpers</a>
+        <a href="../.." >헬퍼 함수</a>
     </h1>
 </div>
 
@@ -454,8 +454,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="saga-helpers">Saga Helpers</h1>
-<p>Redux Saga Test Plan also offers assertions for the saga helper effects
-<code>takeEvery</code>, <code>takeLatest</code>, <code>takeLeading</code>, and <code>throttle</code>.</p>
+<p>Redux Saga Test Plan&#xB294; &#xC0AC;&#xAC00; &#xD5EC;&#xD37C; &#xD568;&#xC218;&#xC778; <code>takeEvery</code>, <code>takeLatest</code>, 
+<code>takeLeading</code>, <code>throttle</code>&#xB4E4;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB3C4; &#xAC80;&#xC99D;&#xBB38;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
+<!-- Redux Saga Test Plan also offers assertions for the saga helper effects
+`takeEvery`, `takeLatest`, `takeLeading`, and `throttle`. --></p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { call, takeEvery } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
 <span class="hljs-keyword">import</span> testSaga <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga-test-plan&apos;</span>;
 
@@ -542,12 +544,12 @@ testSaga(mainSaga)
 
             
                 
-                <a href="effect-creators.html" class="navigation navigation-prev " aria-label="Previous page: Effect Creators">
+                <a href="effect-creators.html" class="navigation navigation-prev " aria-label="Previous page: 이팩트 생성자">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="general-assertions.html" class="navigation navigation-next " aria-label="Next page: General Assertions">
+                <a href="general-assertions.html" class="navigation navigation-next " aria-label="Next page: 기타 검증 함수">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -558,7 +560,7 @@ testSaga(mainSaga)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Saga Helpers","level":"1.4.3","depth":2,"next":{"title":"General Assertions","level":"1.4.4","depth":2,"path":"docs/unit-testing/general-assertions.md","ref":"docs/unit-testing/general-assertions.md","articles":[]},"previous":{"title":"Effect Creators","level":"1.4.2","depth":2,"path":"docs/unit-testing/effect-creators.md","ref":"docs/unit-testing/effect-creators.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/unit-testing/saga-helpers.md","mtime":"2019-05-08T15:39:03.287Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T13:32:33.388Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"헬퍼 함수","level":"1.4.3","depth":2,"next":{"title":"기타 검증 함수","level":"1.4.4","depth":2,"path":"docs/unit-testing/general-assertions.md","ref":"docs/unit-testing/general-assertions.md","articles":[]},"previous":{"title":"이팩트 생성자","level":"1.4.2","depth":2,"path":"docs/unit-testing/effect-creators.md","ref":"docs/unit-testing/effect-creators.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/unit-testing/saga-helpers.md","mtime":"2019-06-28T05:30:37.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-28T06:28:38.226Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

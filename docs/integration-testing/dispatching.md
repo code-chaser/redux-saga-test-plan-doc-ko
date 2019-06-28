@@ -38,8 +38,8 @@ it('handles dispatching actions', () => {
 });
 ```
 
-## 시간이 걸리는 액션 디스패치
-saga의 실행에 시간이 걸리는 액션을 디스패치할 수도 있습니다. 이 경우, Redux Saga Test Plan이 너무 빠르게
+## saga 실행중인 액션 디스패치
+saga가 실행중인 액션을 디스패치할 수도 있습니다. 이 경우, Redux Saga Test Plan이 너무 빠르게
 디스패치 못하도록 액션을 지연하는것이 좋습니다.
 <!-- You can also dispatch actions while a saga is running. This is useful for
 delaying actions so Redux Saga Test Plan doesn't dispatch them too quickly. -->
@@ -76,7 +76,7 @@ it('can dispatch actions while running', () => {
 
 ## `.delay()`로 액션을 지연시켜서 디스패치하기
 
-실행 시간이 걸리는 액션을 디스패치하기 위해 지연시키는 것 말고도 다른 방법이 있습니다. 액션이 
+saga가 실행중인 액션을 디스패치하기 위해 디스패치를 지연시키는 것 말고도 다른 방법이 있습니다. 액션이 
 디스패치되기만을 지연시키고 싶다면 `delay` 사용하세요. `delay`의 인자는 지연시킬 시간입니다. 
 <!-- While being able to dispatch actions while the saga is running has use cases
 besides only delaying, if you just want to delay dispatched actions, you can use

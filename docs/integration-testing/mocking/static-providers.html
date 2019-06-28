@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Static Providers · GitBook</title>
+        <title>정적 프로바이더 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -122,7 +122,7 @@
                 <a href="../">
             
                     
-                    통합 테스트하기
+                    통합 테스트
             
                 </a>
             
@@ -149,7 +149,7 @@
                 <a href="../dispatching.html">
             
                     
-                    디스패치하기
+                    디스패치
             
                 </a>
             
@@ -175,7 +175,7 @@
                 <a href="../state.html">
             
                     
-                    State
+                    상태
             
                 </a>
             
@@ -188,7 +188,7 @@
                 <a href="./">
             
                     
-                    Mocking
+                    모의하기
             
                 </a>
             
@@ -202,7 +202,7 @@
                 <a href="static-providers.html">
             
                     
-                    Static Providers
+                    정적 프로바이더
             
                 </a>
             
@@ -215,7 +215,7 @@
                 <a href="dynamic-providers.html">
             
                     
-                    Dynamic Providers
+                    동적 프로바이더
             
                 </a>
             
@@ -329,7 +329,7 @@
                 <a href="../../unit-testing/">
             
                     
-                    Unit Testing
+                    단위 테스트
             
                 </a>
             
@@ -343,7 +343,7 @@
                 <a href="../../unit-testing/error-messages.html">
             
                     
-                    Error Messages
+                    에러 메세지
             
                 </a>
             
@@ -356,7 +356,7 @@
                 <a href="../../unit-testing/effect-creators.html">
             
                     
-                    Effect Creators
+                    이팩트 생성자
             
                 </a>
             
@@ -369,7 +369,7 @@
                 <a href="../../unit-testing/saga-helpers.html">
             
                     
-                    Saga Helpers
+                    헬퍼 함수
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../../unit-testing/general-assertions.html">
             
                     
-                    General Assertions
+                    기타 검증 함수
             
                 </a>
             
@@ -438,7 +438,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Static Providers</a>
+        <a href="../../.." >정적 프로바이더</a>
     </h1>
 </div>
 
@@ -453,15 +453,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="static-providers">Static Providers</h1>
-<p>You can provide mock values in a terse manner via static providers. Pass in
-an array of tuple pairs (array pairs) into the <code>provide</code> method. For each pair,
+                                <h1 id="&#xC815;&#xC801;-&#xD504;&#xB85C;&#xBC14;&#xC774;&#xB354;">&#xC815;&#xC801; &#xD504;&#xB85C;&#xBC14;&#xC774;&#xB354;</h1>
+<p>&#xC815;&#xC801; &#xD504;&#xB85C;&#xBC14;&#xC774;&#xB354;&#xB97C; &#xD1B5;&#xD574; &#xAC04;&#xACB0;&#xD55C; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xBAA8;&#xC758; &#xAC12;&#xC744; &#xC81C;&#xACF5;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>provide</code> &#xBA54;&#xC11C;&#xB4DC;&#xC5D0;
+&#xD29C;&#xD50C; &#xC30D;&#xC758; &#xBC30;&#xC5F4;(&#xD639;&#xC740; &#xBC30;&#xC5F4; &#xC30D;&#xC758; &#xBC30;&#xC5F4;)&#xC744; &#xC778;&#xC790;&#xB85C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xAC01; &#xC30D;&#xC758; &#xCCAB;&#xBC88;&#xC9F8; &#xC6D0;&#xC18C;&#xB294; &#xC774;&#xD399;&#xD2B8;&#xC5D0; &#xB9E4;&#xCE6D;&#xD560; &#xB9E4;&#xCC98;&#xC774;&#xACE0; 
+&#xB450;&#xBC88;&#xC9F8; &#xC6D0;&#xC18C;&#xB294; &#xC774;&#xD329;&#xD2B8;&#xC5D0; &#xC81C;&#xACF5;&#xD558;&#xB824;&#xB294; &#xBAA8;&#xC758;&#xAC12;&#xC785;&#xB2C8;&#xB2E4;. <code>redux-saga-test-plan/matchers</code>&#xC758; &#xB9E4;&#xCC98;&#xB300;&#xC2E0;
+<code>redux-saga/effects</code>&#xC758; &#xC774;&#xD329;&#xD2B8;&#xB4E4;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. Redux Saga Test Plan&#xC758; &#xB9E4;&#xCC98;&#xB97C;
+&#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xBD80;&#xBD84; &#xB9E4;&#xCE6D;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C;&#xB4E4;&#xBA74; <code>call</code> &#xC774;&#xD329;&#xD2B8;&#xC5D0; &#xB300;&#xC751;&#xB418;&#xB294; <code>call.fn</code>&#xC744; &#xC778;&#xC790;&#xAC12;&#xC744; 
+&#xC2E0;&#xACBD;&#xC4F0;&#xC9C0; &#xC54A;&#xACE0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- You can provide mock values in a terse manner via static providers. Pass in
+an array of tuple pairs (array pairs) into the `provide` method. For each pair,
 the first element should be a matcher for matching the effect and the second
 effect should be the mock value you want to provide. You can use effect creators
-from <code>redux-saga/effects</code> as matchers or import matchers from
-<code>redux-saga-test-plan/matchers</code>. The benefit of using Redux Saga Test Plan&apos;s
+from `redux-saga/effects` as matchers or import matchers from
+`redux-saga-test-plan/matchers`. The benefit of using Redux Saga Test Plan's
 matchers is that they also offer partial matching. For example, you can use
-<code>call.fn</code> to match any calls to a function without regard to its arguments.</p>
+`call.fn` to match any calls to a function without regard to its arguments. --></p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { call, put, select } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
 <span class="hljs-keyword">import</span> { expectSaga } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga-test-plan&apos;</span>;
 <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> matchers <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga-test-plan/matchers&apos;</span>;
@@ -478,10 +484,10 @@ matchers is that they also offer partial matching. For example, you can use
 it(<span class="hljs-string">&apos;provides a value for the API call&apos;</span>, () =&gt; {
   <span class="hljs-keyword">return</span> expectSaga(saga)
     .provide([
-      <span class="hljs-comment">// Use the `select` effect creator from Redux Saga to match</span>
+      <span class="hljs-comment">// Redux Saga&#xC758; `select` &#xC774;&#xD329;&#xD2B8; &#xC0DD;&#xC131;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;</span>
       [select(selectors.getId), <span class="hljs-number">42</span>],
 
-      <span class="hljs-comment">// Use the `call.fn` matcher from Redux Saga Test Plan</span>
+      <span class="hljs-comment">// Redux Saga Test Plan &#xC758; `call.fn` &#xB9E4;&#xCC98;&#xB97C; &#xC0AC;&#xC6A9;</span>
       [matchers.call.fn(api.fetchUser), { id: <span class="hljs-number">42</span>, name: <span class="hljs-string">&apos;John Doe&apos;</span> }],
     ])
     .put({
@@ -491,11 +497,13 @@ it(<span class="hljs-string">&apos;provides a value for the API call&apos;</span
     .run();
 });
 </code></pre>
-<h2 id="matchers">Matchers</h2>
-<p>Inside the <code>redux-saga-test-plan/matchers</code> module, there are matchers for most
+<h2 id="&#xB9E4;&#xCC98;">&#xB9E4;&#xCC98;</h2>
+<p>Redux Saga&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xB300;&#xBD80;&#xBD84;&#xC758; &#xC774;&#xD329;&#xD2B8; &#xC0DD;&#xC131;&#xC790;&#xB4E4;&#xC758; &#xB300;&#xD55C; &#xB9E4;&#xCC98;&#xB4E4;&#xC774; <code>redux-saga-test-plan/matchers</code>
+&#xBAA8;&#xB4C8;&#xC5D0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xD329;&#xD2B8; &#xC0DD;&#xC131;&#xC790;&#xB4E4;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB294; Redux Saga <a href="http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators" target="_blank">&#xBB38;&#xC11C;</a>&#xB97C; &#xD655;&#xC778;&#xD558;&#xC138;&#xC694;.
+<!-- Inside the `redux-saga-test-plan/matchers` module, there are matchers for most
 of the effect creators available in Redux Saga. You can reference effect
-creators in Redux Saga&apos;s docs
-<a href="http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators" target="_blank">here</a>.</p>
+creators in Redux Saga's docs
+[here](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators). --></p>
 <ul>
 <li><code>actionChannel(pattern, [buffer])</code></li>
 <li><code>apply(context, fn, args)</code></li>
@@ -712,7 +720,7 @@ it(<span class="hljs-string">&apos;works with dynamic static providers&apos;</sp
     .run();
 });
 </code></pre>
-<h2 id="other-examples">Other Examples</h2>
+<h2 id="other-examples">Other Examples</h2>
 <h3 id="parallel-effects-via-all">Parallel Effects via <code>all</code></h3>
 <p>Providers work on effects yielded inside an <code>all</code> effect:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { put, select } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
@@ -817,12 +825,12 @@ task <code>meta.name</code> property being correct in PhantomJS.</p>
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Mocking">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 모의하기">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="dynamic-providers.html" class="navigation navigation-next " aria-label="Next page: Dynamic Providers">
+                <a href="dynamic-providers.html" class="navigation navigation-next " aria-label="Next page: 동적 프로바이더">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -833,7 +841,7 @@ task <code>meta.name</code> property being correct in PhantomJS.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Static Providers","level":"1.3.5.1","depth":3,"next":{"title":"Dynamic Providers","level":"1.3.5.2","depth":3,"path":"docs/integration-testing/mocking/dynamic-providers.md","ref":"docs/integration-testing/mocking/dynamic-providers.md","articles":[]},"previous":{"title":"Mocking","level":"1.3.5","depth":2,"path":"docs/integration-testing/mocking/README.md","ref":"docs/integration-testing/mocking/README.md","articles":[{"title":"Static Providers","level":"1.3.5.1","depth":3,"path":"docs/integration-testing/mocking/static-providers.md","ref":"docs/integration-testing/mocking/static-providers.md","articles":[]},{"title":"Dynamic Providers","level":"1.3.5.2","depth":3,"path":"docs/integration-testing/mocking/dynamic-providers.md","ref":"docs/integration-testing/mocking/dynamic-providers.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/mocking/static-providers.md","mtime":"2019-05-08T15:39:03.280Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T13:32:33.388Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"정적 프로바이더","level":"1.3.5.1","depth":3,"next":{"title":"동적 프로바이더","level":"1.3.5.2","depth":3,"path":"docs/integration-testing/mocking/dynamic-providers.md","ref":"docs/integration-testing/mocking/dynamic-providers.md","articles":[]},"previous":{"title":"모의하기","level":"1.3.5","depth":2,"path":"docs/integration-testing/mocking/README.md","ref":"docs/integration-testing/mocking/README.md","articles":[{"title":"정적 프로바이더","level":"1.3.5.1","depth":3,"path":"docs/integration-testing/mocking/static-providers.md","ref":"docs/integration-testing/mocking/static-providers.md","articles":[]},{"title":"동적 프로바이더","level":"1.3.5.2","depth":3,"path":"docs/integration-testing/mocking/dynamic-providers.md","ref":"docs/integration-testing/mocking/dynamic-providers.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/mocking/static-providers.md","mtime":"2019-06-27T16:04:29.979Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-28T06:28:38.226Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
