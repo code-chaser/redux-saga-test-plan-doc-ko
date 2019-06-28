@@ -1,7 +1,9 @@
-# Error Messages
+# 에러 메시지
 
-If a yielded effect and assertion effect call don't match, then the mock saga
-will throw an error showing the difference between the two.
+반환된 이팩트와 검증 이팩트가 일치하지 않으면 saga는 둘의 
+차이를 보여주는 에러를 발생시킬 것입니다.
+<!-- If a yielded effect and assertion effect call don't match, then the mock saga
+will throw an error showing the difference between the two. -->
 
 ```js
 function identity(value) {
@@ -62,8 +64,10 @@ saga
 // { channel: null, action: { type: 'ADD', payload: 42 } }
 ```
 
-If the yielded effect and asserted effect are different types of effects, then
-the saga will throw an error with a message showing the difference.
+반환된 이팩트와 검증에 사용된 이펙트의 타입이 다르면 그 차이를 보여주는
+에러를 발생시킬 것입니다.
+<!-- If the yielded effect and asserted effect are different types of effects, then
+the saga will throw an error with a message showing the difference. -->
 
 ```js
 function identity(value) {

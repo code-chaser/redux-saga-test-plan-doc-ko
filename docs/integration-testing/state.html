@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>State · GitBook</title>
+        <title>상태 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -122,7 +122,7 @@
                 <a href="./">
             
                     
-                    통합 테스트하기
+                    통합 테스트
             
                 </a>
             
@@ -149,7 +149,7 @@
                 <a href="dispatching.html">
             
                     
-                    디스패치하기
+                    디스패치
             
                 </a>
             
@@ -175,7 +175,7 @@
                 <a href="state.html">
             
                     
-                    State
+                    상태
             
                 </a>
             
@@ -188,7 +188,7 @@
                 <a href="mocking/">
             
                     
-                    Mocking
+                    모의하기
             
                 </a>
             
@@ -202,7 +202,7 @@
                 <a href="mocking/static-providers.html">
             
                     
-                    Static Providers
+                    정적 프로바이더
             
                 </a>
             
@@ -215,7 +215,7 @@
                 <a href="mocking/dynamic-providers.html">
             
                     
-                    Dynamic Providers
+                    동적 프로바이더
             
                 </a>
             
@@ -329,7 +329,7 @@
                 <a href="../unit-testing/">
             
                     
-                    Unit Testing
+                    단위 테스트
             
                 </a>
             
@@ -343,7 +343,7 @@
                 <a href="../unit-testing/error-messages.html">
             
                     
-                    Error Messages
+                    에러 메세지
             
                 </a>
             
@@ -356,7 +356,7 @@
                 <a href="../unit-testing/effect-creators.html">
             
                     
-                    Effect Creators
+                    이팩트 생성자
             
                 </a>
             
@@ -369,7 +369,7 @@
                 <a href="../unit-testing/saga-helpers.html">
             
                     
-                    Saga Helpers
+                    헬퍼 함수
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../unit-testing/general-assertions.html">
             
                     
-                    General Assertions
+                    기타 검증 함수
             
                 </a>
             
@@ -438,7 +438,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >State</a>
+        <a href="../.." >상태</a>
     </h1>
 </div>
 
@@ -453,13 +453,17 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="state">State</h1>
-<p>You can test your saga&apos;s integration with your reducer and store state via the
-<code>withState</code>, <code>withReducer</code>, and <code>hasFinalState</code> methods.</p>
-<h2 id="static-state-via-withstate">Static State via <code>withState</code></h2>
-<p>For static state, you can just use the <code>withState</code> method to allow <code>select</code>
+                                <h1 id="&#xC0C1;&#xD0DC;-&#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;">&#xC0C1;&#xD0DC; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;</h1>
+<p><code>withState</code>, <code>withReducer</code>, <code>hasFinalState</code> &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xD1B5;&#xD574; &#xC2A4;&#xD1A0;&#xC5B4; &#xC0C1;&#xD0DC;&#xC640; &#xB9AC;&#xB4C0;&#xC11C;&#xB97C;
+&#xD568;&#xAED8; &#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- You can test your saga's integration with your reducer and store state via the
+`withState`, `withReducer`, and `hasFinalState` methods. --></p>
+<h2 id="withstate&#xB97C;-&#xD1B5;&#xD574;-&#xC815;&#xC801;-&#xC0C1;&#xD0DC;-&#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;"><code>withState</code>&#xB97C; &#xD1B5;&#xD574; &#xC815;&#xC801; &#xC0C1;&#xD0DC; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;</h2>
+<p>&#xC815;&#xC801; &#xC0C1;&#xD0DC;&#xC758; &#xACBD;&#xC6B0; <code>select</code> &#xC774;&#xD329;&#xD2B8;&#xAC00; &#xB3D9;&#xC791;&#xD558;&#xB294; <code>withState</code> &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xAC70;&#xB098;
+<a href="../../integration-testing/mocking/README.md">&#xD504;&#xB85C;&#xBC14;&#xC774;&#xB354;</a>&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- For static state, you can just use the `withState` method to allow `select`
 effects to work. You can also use
-<a href="../../integration-testing/mocking/README.md">providers</a> for this.</p>
+[providers](/integration-testing/mocking/README.md) for this. --></p>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> storeState = {
   data: {
     foo: <span class="hljs-string">&apos;bar&apos;</span>,
@@ -482,14 +486,19 @@ it(<span class="hljs-string">&apos;can take store state&apos;</span>, () =&gt; {
     .run();
 });
 </code></pre>
-<h2 id="dynamic-state-via-withreducer">Dynamic State via <code>withReducer</code></h2>
-<p>For state that might change, you can use the <code>withReducer</code> method. It takes two
-arguments: your reducer and optional initial state. If you don&apos;t supply the
-initial state, then <code>withReducer</code> will extract it by passing an initial action
-into your reducer like Redux.</p>
-<p>Any <code>select</code> effects will reflect state changes where appropriate. More
+<h2 id="withreducer&#xB97C;-&#xD1B5;&#xD574;-&#xB3D9;&#xC801;-&#xC0C1;&#xD0DC;-&#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;"><code>withReducer</code>&#xB97C; &#xD1B5;&#xD574; &#xB3D9;&#xC801; &#xC0C1;&#xD0DC; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;</h2>
+<p>&#xBCC0;&#xACBD;&#xB418;&#xB294; &#xC0C1;&#xD0DC;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB294; <code>withReducer</code> &#xBA54;&#xC11C;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>withReducer</code> &#xBA54;&#xC11C;&#xB4DC;&#xB294;
+2&#xAC1C;&#xC758; &#xC778;&#xC790;&#xB85C; &#xB9AC;&#xB4C0;&#xC11C;&#xC640; &#xC0C1;&#xD0DC;(&#xC0DD;&#xB7B5;&#xAC00;&#xB2A5;) &#xCD08;&#xAE30;&#xAC12;&#xC744; &#xAC00;&#xC9D1;&#xB2C8;&#xB2E4;. &#xCD08;&#xAE30;&#xAC12;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; <code>withReducer</code>&#xB294;
+&#xB9AC;&#xB355;&#xC2A4;&#xCC98;&#xB7FC; &#xB9AC;&#xB4C0;&#xC11C;&#xC758; &#xCD08;&#xAE30; &#xC561;&#xC158;&#xC73C;&#xB85C; &#xBD80;&#xD130; &#xCD08;&#xAE30;&#xAC12;&#xC744; &#xC5BB;&#xC5B4;&#xB0B4;&#xB824; &#xD560; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+<!-- For state that might change, you can use the `withReducer` method. It takes two
+arguments: your reducer and optional initial state. If you don't supply the
+initial state, then `withReducer` will extract it by passing an initial action
+into your reducer like Redux. --></p>
+<p><code>select</code> &#xC774;&#xD329;&#xD2B8;&#xB294; &#xC0AC;&#xC6A9;&#xB41C;&#xACF3;&#xC5D0;&#xC11C; &#xBCC0;&#xACBD;&#xB41C; &#xC0C1;&#xD0DC;&#xB97C; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xC218; &#xC788;&#xC9C0;&#xB9CC;, <code>hasFinalState</code>&#xB294; saga&#xAC00; &#xC644;&#xB8CC;&#xB41C;
+&#xD6C4;&#xC5D0; &#xC2A4;&#xD1A0;&#xC5B4; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xD14C;&#xC2A4;&#xD2B8; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<!-- Any `select` effects will reflect state changes where appropriate. More
 importantly, you can test your store state after the saga completes via
-<code>hasFinalState</code>.</p>
+`hasFinalState`. -->
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> initialDog = {
   name: <span class="hljs-string">&apos;Tucker&apos;</span>,
   age: <span class="hljs-number">11</span>,
@@ -515,7 +524,7 @@ it(<span class="hljs-string">&apos;handles reducers when not supplying initial s
     .withReducer(dogReducer)
     .hasFinalState({
       name: <span class="hljs-string">&apos;Tucker&apos;</span>,
-      age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- age in store state changed</span>
+      age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xBCC0;&#xACBD;&#xB41C; age</span>
     })
     .run();
 });
@@ -525,14 +534,15 @@ it(<span class="hljs-string">&apos;handles reducers when supplying initial state
     .withReducer(dogReducer, initialDog)
     .hasFinalState({
       name: <span class="hljs-string">&apos;Tucker&apos;</span>,
-      age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- age in store state changed</span>
+      age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xBCC0;&#xACBD;&#xB41C; age</span>
     })
     .run();
 });
 </code></pre>
-<h2 id="exposed-store-state">Exposed Store State</h2>
-<p>The <code>Promise</code> returned from <code>run</code> resolves with a <code>storeState</code> object that you
-can inspect for more fine-grained testing.</p>
+<h2 id="&#xC2A4;&#xD1A0;&#xC5B4;-&#xC0C1;&#xD0DC;-&#xC81C;&#xACF5;">&#xC2A4;&#xD1A0;&#xC5B4; &#xC0C1;&#xD0DC; &#xC81C;&#xACF5;</h2>
+<p><code>run</code>&#xAC00; &#xBC18;&#xD658;&#xD558;&#xB294; <code>Promise</code>&#xB294; &#xC138;&#xBC00;&#xD55C; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xD560;&#xC218;&#xC788;&#xB294; <code>storeState</code> &#xAC1D;&#xCCB4;&#xB97C; &#xB9AC;&#xC878;&#xBE0C;&#xD55C;&#xB2E4;.
+<!-- The `Promise` returned from `run` resolves with a `storeState` object that you
+can inspect for more fine-grained testing. --></p>
 <pre><code class="lang-js">it(<span class="hljs-string">&apos;exposes the store state&apos;</span>, () =&gt; {
   <span class="hljs-keyword">return</span> expectSaga(saga)
     .withReducer(dogReducer, initialDog)
@@ -540,7 +550,7 @@ can inspect for more fine-grained testing.</p>
     .then((result) =&gt; {
       expect(result.storeState).toEqual({
         name: <span class="hljs-string">&apos;Tucker&apos;</span>,
-        age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- age in store state changed</span>
+        age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xBCC0;&#xACBD;&#xB41C; age</span>
       });
     });
 });
@@ -552,7 +562,7 @@ it(<span class="hljs-string">&apos;exposes the store state using async/await&apo
 
   expect(storeState).toEqual({
     name: <span class="hljs-string">&apos;Tucker&apos;</span>,
-    age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- age in store state changed</span>
+    age: <span class="hljs-number">12</span>, <span class="hljs-comment">// &lt;-- &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xBCC0;&#xACBD;&#xB41C; age</span>
   });
 });
 </code></pre>
@@ -588,7 +598,7 @@ it(<span class="hljs-string">&apos;exposes the store state using async/await&apo
                 </a>
                 
                 
-                <a href="mocking/" class="navigation navigation-next " aria-label="Next page: Mocking">
+                <a href="mocking/" class="navigation navigation-next " aria-label="Next page: 모의하기">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -599,7 +609,7 @@ it(<span class="hljs-string">&apos;exposes the store state using async/await&apo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"State","level":"1.3.4","depth":2,"next":{"title":"Mocking","level":"1.3.5","depth":2,"path":"docs/integration-testing/mocking/README.md","ref":"docs/integration-testing/mocking/README.md","articles":[{"title":"Static Providers","level":"1.3.5.1","depth":3,"path":"docs/integration-testing/mocking/static-providers.md","ref":"docs/integration-testing/mocking/static-providers.md","articles":[]},{"title":"Dynamic Providers","level":"1.3.5.2","depth":3,"path":"docs/integration-testing/mocking/dynamic-providers.md","ref":"docs/integration-testing/mocking/dynamic-providers.md","articles":[]}]},"previous":{"title":"시간제한","level":"1.3.3","depth":2,"path":"docs/integration-testing/timeout.md","ref":"docs/integration-testing/timeout.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/state.md","mtime":"2019-05-08T15:39:03.283Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T13:32:33.388Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"상태","level":"1.3.4","depth":2,"next":{"title":"모의하기","level":"1.3.5","depth":2,"path":"docs/integration-testing/mocking/README.md","ref":"docs/integration-testing/mocking/README.md","articles":[{"title":"정적 프로바이더","level":"1.3.5.1","depth":3,"path":"docs/integration-testing/mocking/static-providers.md","ref":"docs/integration-testing/mocking/static-providers.md","articles":[]},{"title":"동적 프로바이더","level":"1.3.5.2","depth":3,"path":"docs/integration-testing/mocking/dynamic-providers.md","ref":"docs/integration-testing/mocking/dynamic-providers.md","articles":[]}]},"previous":{"title":"시간제한","level":"1.3.3","depth":2,"path":"docs/integration-testing/timeout.md","ref":"docs/integration-testing/timeout.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/integration-testing/state.md","mtime":"2019-06-26T16:29:55.331Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-28T06:28:38.226Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

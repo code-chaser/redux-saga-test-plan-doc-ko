@@ -1,6 +1,6 @@
-# 이팩트 생성자 검증
+# 이팩트 생성자 검증하기
 
-`expectSaga` API는 Redux Saga에 있는 대부분의 이팩트 생성자들을 검증할 수 있습니다. effect
+`expectSaga`는 Redux Saga에 있는 대부분의 이팩트 생성자들에 대해 검증 API를 제공합니다. 이펙트
 생성자들에 대해서는 Redux Saga의 [문서](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators)를 참조하세요.
 <!-- The `expectSaga` API has assertions for most of the effect creators available in
 Redux Saga. You can reference effect creators in Redux Saga's docs

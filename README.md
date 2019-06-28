@@ -23,7 +23,7 @@ approaches to make testing your sagas easy. -->
 
 saga 단위 테스트의 단점은 테스트가 구현코드와 결합된다는 것입니다. 단순히 saga에서 반환되는 이펙트들의
 순서를 변경하는것 만으로도 테스트가 깨집니다. 테스트가 기능적으로 동일하더라도 그렇습니다. 
-saga에서 반환되는 effect의 검증이나 순서에 관심이 없다면, Redux Saga가 실행될 때 saga의 동작을 
+saga에서 반환되는 이팩트의 검증이나 순서에 관심이 없다면, Redux Saga가 실행될 때 saga의 동작을
 통합적으로 접근해서 테스트할 수 있습니다. 그럴려면 `expectSaga` 테스트 함수를 사용해서 saga가 실행되는 
 동안 반환된 일부 이팩트를 간단하게 테스트 하면 됩니다. 
 <!-- One downside to unit testing sagas is that it couples your test to your
@@ -95,13 +95,13 @@ it('just works!', () => {
 });
 ```
 
-### Providers 로 모의(Mock)하기
+### 프로바이더로 모의(Mock)하기
 
 `expectSaga`는 Redux Saga로 saga를 실행하기 때문에 어플리케이션에서의 Redux Saga처럼 이펙트들을 
 실행하려 합니다. 통합 테스트에서는 이것이 장점이지만, 가끔 빠르게 전체 앱을 테스트 하기가 어려워지기도 합니다.
-이런 경우 `expectSaga`의 값들을 완벽하게 모의하는 _providers_ 를 사용 할 수 있습니다. providers는 
+이런 경우 `expectSaga`의 값들을 완벽하게 모의하는 _프로바이더_ 를 사용 할 수 있습니다. 프로바이더는 
 미들웨어와 비슷하게 이펙트들이 Redux Saga에 접근하기 전에 가로챕니다. Redux Saga에서 이팩트를
-처리하는 대신 모의 값을 반환하도록 할 수도 있고, 다른 전에 providers나 Redux Saga에 이팩트를 전달
+처리하는 대신 모의 값을 반환하도록 할 수도 있고, 다른 전에 프로바이더나 Redux Saga에 이팩트를 전달
 할 수도 있습니다.
 <!-- `expectSaga` runs your saga with Redux Saga, so it will try to resolve effects
 just like Redux Saga would in your application. This is great for integration
@@ -113,9 +113,9 @@ they reach Redux Saga. You can choose to return a mock value instead of allowing
 Redux Saga to handle the effect, or you can pass on the effect to other
 providers or eventually Redux Saga. -->
 
-`expectSaga`의 providers는 _static providers_와 _dynamic providers_, 2가지로 나뉩니다.
-정적 providers는 쉽게 조합과 재사용이 되고, 동적 providers는 비결정적인 이펙트들로 유연함을 줍니다.
-다음 예제는 정적 providers를 사용하였습니다. providers의 더 많은 예제는 
+`expectSaga`의 프로바이더는 _정적 프로바이더_와 _동적 프로바이더_, 2가지로 나뉩니다.
+정적 프로바이더는 쉽게 조합과 재사용이 되고, 동적 프로바이더는 비결정적인 이펙트들로 유연함을 줍니다.
+다음 예제는 정적 프로바이더를 사용하였습니다. 프로바이더의 더 많은 예제는 
 [여기](http://redux-saga-test-plan.jeremyfairbank.com/integration-testing/mocking/)
 에 있습니다.
 <!-- `expectSaga` has two flavors of providers, _static providers_ and _dynamic
@@ -177,8 +177,8 @@ it('handles errors', () => {
 });
 ```
 matcher와 가짜 값을 포함하는 튜플의 쌍(혹은 배열의 쌍)의 배열을 전달하는 것을 확인하세요. Redux Saga의
-이팩트 생성자 혹은 이팩트에 대응하는 `redux-saga-test-plan/matchers` 모듈의 matchers를 사용할
-수 있습니다. Redux Saga Test Plan의 matchers를 사용하면 `call.fn` 같은 martchers의 경우 이 함수와
+이팩트 생성자 혹은 이팩트에 대응하는 `redux-saga-test-plan/matchers` 모듈의 매처를 사용할
+수 있습니다. Redux Saga Test Plan의 매처를 사용하면 `call.fn` 같은 매처의 경우 이 함수와
 대응되는 실제 `call` 이팩트가 포함하는 특정 `args` 에 대헤 신경쓰지 않고 사용할 수 있습니다. 두번째
 테스트는 `redux-saga-test-plan/providers` 모듈의 `throwError` 함수로 에러들을 시뮬레이트합니다. 
 이것은 서버 문제를 시뮬레이션하기 좋습니다.
@@ -308,23 +308,23 @@ it('works with unit tests', () => {
 
 - [소개](README.md)
 - [시작하기](docs/getting-started.md)
-- [통합 테스트하기](docs/integration-testing/README.md)
+- [통합 테스트](docs/integration-testing/README.md)
   - [이펙트 생성자 검증](docs/integration-testing/effect-creators.md)
-  - [디스패치하기](docs/integration-testing/dispatching.md)
+  - [디스패치](docs/integration-testing/dispatching.md)
   - [시간제한](docs/integration-testing/timeout.md)
-  - [State](docs/integration-testing/state.md)
-  - [Mocking](docs/integration-testing/mocking/README.md)
-    - [Static Providers](docs/integration-testing/mocking/static-providers.md)
-    - [Dynamic Providers](docs/integration-testing/mocking/dynamic-providers.md)
+  - [상태](docs/integration-testing/state.md)
+  - [모의하기](docs/integration-testing/mocking/README.md)
+    - [정적 프로바이더](docs/integration-testing/mocking/static-providers.md)
+    - [동적 프로바이더](docs/integration-testing/mocking/dynamic-providers.md)
   - [Partial Assertions](docs/integration-testing/partial-matching.md)
   - [Negated Assertions](docs/integration-testing/negated-assertions.md)
   - [Exposed Effects](docs/integration-testing/exposed-effects.md)
   - [Snapshot Testing](docs/integration-testing/snapshot-testing.md)
   - [Return Value](docs/integration-testing/return-value.md)
   - [Forked Sagas](docs/integration-testing/forked-sagas.md)
-- [Unit Testing](docs/unit-testing/README.md)
-  - [Error Messages](docs/unit-testing/error-messages.md)
-  - [Effect Creators](docs/unit-testing/effect-creators.md)
-  - [Saga Helpers](docs/unit-testing/saga-helpers.md)
-  - [General Assertions](docs/unit-testing/general-assertions.md)
+- [단위 테스트](docs/unit-testing/README.md)
+  - [에러 메세지(docs/unit-testing/error-messages.md)
+  - [이팩트 생성자](docs/unit-testing/effect-creators.md)
+  - [헬퍼 함수](docs/unit-testing/saga-helpers.md)
+  - [기타 검증 함수](docs/unit-testing/general-assertions.md)
   - [Time Travel](docs/unit-testing/time-travel.md)

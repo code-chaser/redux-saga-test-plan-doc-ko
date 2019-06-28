@@ -1,8 +1,10 @@
 # Effect Creator Assertions
 
-The `testSaga` API has assertions for all the effect creators available in Redux
+`expectSaga`는 Redux Saga에 있는 대부분의 이팩트 생성자들에 대해 검증 API를 제공합니다. 이펙트
+생성자들에 대해서는 Redux Saga의 [문서](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators)를 참조하세요.
+<!-- The `testSaga` API has assertions for all the effect creators available in Redux
 Saga. You can reference them in Redux Saga's docs
-[here](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators).
+[here](http://redux-saga.github.io/redux-saga/docs/api/index.html#effect-creators). -->
 
 - `take(pattern)`
 - `takeMaybe(pattern)`

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>General Assertions · GitBook</title>
+        <title>기타 검증 함수 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -122,7 +122,7 @@
                 <a href="../integration-testing/">
             
                     
-                    통합 테스트하기
+                    통합 테스트
             
                 </a>
             
@@ -149,7 +149,7 @@
                 <a href="../integration-testing/dispatching.html">
             
                     
-                    디스패치하기
+                    디스패치
             
                 </a>
             
@@ -175,7 +175,7 @@
                 <a href="../integration-testing/state.html">
             
                     
-                    State
+                    상태
             
                 </a>
             
@@ -188,7 +188,7 @@
                 <a href="../integration-testing/mocking/">
             
                     
-                    Mocking
+                    모의하기
             
                 </a>
             
@@ -202,7 +202,7 @@
                 <a href="../integration-testing/mocking/static-providers.html">
             
                     
-                    Static Providers
+                    정적 프로바이더
             
                 </a>
             
@@ -215,7 +215,7 @@
                 <a href="../integration-testing/mocking/dynamic-providers.html">
             
                     
-                    Dynamic Providers
+                    동적 프로바이더
             
                 </a>
             
@@ -329,7 +329,7 @@
                 <a href="./">
             
                     
-                    Unit Testing
+                    단위 테스트
             
                 </a>
             
@@ -343,7 +343,7 @@
                 <a href="error-messages.html">
             
                     
-                    Error Messages
+                    에러 메세지
             
                 </a>
             
@@ -356,7 +356,7 @@
                 <a href="effect-creators.html">
             
                     
-                    Effect Creators
+                    이팩트 생성자
             
                 </a>
             
@@ -369,7 +369,7 @@
                 <a href="saga-helpers.html">
             
                     
-                    Saga Helpers
+                    헬퍼 함수
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="general-assertions.html">
             
                     
-                    General Assertions
+                    기타 검증 함수
             
                 </a>
             
@@ -438,7 +438,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >General Assertions</a>
+        <a href="../.." >기타 검증 함수</a>
     </h1>
 </div>
 
@@ -453,9 +453,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="general-assertions">General Assertions</h1>
-<p>Other general assertions and helpers available are <code>is</code>, <code>isDone</code>, <code>returns</code>,
-and <code>inspect</code>.</p>
+                                <h1 id="&#xAE30;&#xD0C0;-&#xAC80;&#xC99D;-&#xD568;&#xC218;">&#xAE30;&#xD0C0; &#xAC80;&#xC99D; &#xD568;&#xC218;</h1>
+<p><code>is</code>, <code>isDone</code>, <code>returns</code>, <code>inspect</code> &#xB4E4;&#xC740; &#xD5EC;&#xD37C; &#xD568;&#xC218;&#xC640; &#xAC80;&#xC99D; &#xD568;&#xC218;&#xB4E4;&#xC785;&#xB2C8;&#xB2E4;.
+<!-- Other general assertions and helpers available are `is`, `isDone`, `returns`,
+and `inspect`. --></p>
 <table>
 <thead>
 <tr>
@@ -466,23 +467,23 @@ and <code>inspect</code>.</p>
 <tbody>
 <tr>
 <td><code>is</code></td>
-<td>General purpose deep equal assertion</td>
+<td>&#xC77C;&#xBC18;&#xC801;&#xC778; &#xC6A9;&#xB3C4;&#xC758; &#xAE4A;&#xC740; &#xB3D9;&#xB4F1; &#xAC80;&#xC99D;</td>
 </tr>
 <tr>
 <td><code>isDone</code></td>
-<td>Assert at end of saga</td>
+<td>&#xC0AC;&#xAC00;&#xC758; &#xC885;&#xB8CC;&#xB97C; &#xAC80;&#xC99D;</td>
 </tr>
 <tr>
 <td><code>returns</code></td>
-<td>Assert saga returns a value and is done</td>
+<td>&#xC0AC;&#xAC00;&#xAC00; &#xBC18;&#xD658;&#xD558;&#xB294; &#xAC12;&#xACFC; &#xC885;&#xB8CC; &#xB418;&#xC5C8;&#xC74C;&#xC744; &#xAC80;&#xC99D;</td>
 </tr>
 <tr>
 <td><code>inspect</code></td>
-<td>Inspect the next yielded value for more fine-grained, custom testing</td>
+<td>&#xB354; &#xC138;&#xBC00;&#xD55C; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC704;&#xD574; next&#xB85C; &#xBC18;&#xD658;&#xB418;&#xB294; &#xAC12;&#xC744; &#xAC80;&#xC0AC;</td>
 </tr>
 </tbody>
 </table>
-<h4 id="generic-example">Generic Example</h4>
+<h4 id="&#xC77C;&#xBC18;&#xC801;&#xC778;-&#xC608;&#xC81C;">&#xC77C;&#xBC18;&#xC801;&#xC778; &#xC608;&#xC81C;</h4>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { take } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;redux-saga/effects&apos;</span>;
 
 <span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">mainSaga</span>(<span class="hljs-params"></span>) </span>{
@@ -502,7 +503,7 @@ saga
   .next()
   .isDone();
 </code></pre>
-<h4 id="returns-example"><code>returns</code> Example</h4>
+<h4 id="returns-&#xC608;&#xC81C;"><code>returns</code> &#xC608;&#xC81C;</h4>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">otherSaga</span>(<span class="hljs-params">x</span>) </span>{
   <span class="hljs-keyword">return</span> x * <span class="hljs-number">2</span>;
 }
@@ -513,11 +514,14 @@ saga
   .next()
   .returns(<span class="hljs-number">42</span>);
 </code></pre>
-<h4 id="inspect-example"><code>inspect</code> Example</h4>
-<p>If your saga yields a nondeterministic type of value or something not easily
+<h4 id="inspect-&#xC608;&#xC81C;"><code>inspect</code> &#xC608;&#xC81C;</h4>
+<p>saga&#xAC00; &#xBE44;&#xACB0;&#xC815;&#xC801;&#xC778; &#xC720;&#xD615;&#xC758; &#xAC12;&#xC744; &#xBC18;&#xD658;&#xD55C;&#xB2E4;&#xBA74; &#xC774;&#xD329;&#xD2B8; &#xAC80;&#xC99D; &#xD568;&#xC218;&#xB098; &#xC77C;&#xBC18;&#xC801;&#xC778; &#xAC80;&#xC99D;&#xD568;&#xC218;&#xB85C;
+&#xCC98;&#xB9AC;&#xD558;&#xAE30; &#xC5B4;&#xB835;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB7F4;&#xACBD;&#xC6B0;, <code>inspect</code> &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xC2E4;&#xC81C; &#xBC18;&#xD658;&#xB418;&#xB294; &#xAC12;&#xC744; 
+&#xB2F9;&#xC2E0;&#xC774; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC80;&#xC99D; &#xD568;&#xC218; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC758; &#xAC80;&#xC99D; &#xD568;&#xC218;&#xB85C; &#xD0D0;&#xC0C9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<!-- If your saga yields a nondeterministic type of value or something not easily
 covered by the effect assertions or other general assertions, then you can use
-<code>inspect</code> to retrieve the actual yielded value and perform your own assertions
-with your favorite assertion library.</p>
+`inspect` to retrieve the actual yielded value and perform your own assertions
+with your favorite assertion library. --></p>
 <pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span>* <span class="hljs-title">saga</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">yield</span> () =&gt; <span class="hljs-number">42</span>;
 }
@@ -555,7 +559,7 @@ testSaga(saga)
 
             
                 
-                <a href="saga-helpers.html" class="navigation navigation-prev " aria-label="Previous page: Saga Helpers">
+                <a href="saga-helpers.html" class="navigation navigation-prev " aria-label="Previous page: 헬퍼 함수">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -571,7 +575,7 @@ testSaga(saga)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"General Assertions","level":"1.4.4","depth":2,"next":{"title":"Time Travel","level":"1.4.5","depth":2,"path":"docs/unit-testing/time-travel.md","ref":"docs/unit-testing/time-travel.md","articles":[]},"previous":{"title":"Saga Helpers","level":"1.4.3","depth":2,"path":"docs/unit-testing/saga-helpers.md","ref":"docs/unit-testing/saga-helpers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/unit-testing/general-assertions.md","mtime":"2019-05-08T15:39:03.286Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-23T13:32:33.388Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"기타 검증 함수","level":"1.4.4","depth":2,"next":{"title":"Time Travel","level":"1.4.5","depth":2,"path":"docs/unit-testing/time-travel.md","ref":"docs/unit-testing/time-travel.md","articles":[]},"previous":{"title":"헬퍼 함수","level":"1.4.3","depth":2,"path":"docs/unit-testing/saga-helpers.md","ref":"docs/unit-testing/saga-helpers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/unit-testing/general-assertions.md","mtime":"2019-06-28T06:26:20.186Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-28T06:28:38.226Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
